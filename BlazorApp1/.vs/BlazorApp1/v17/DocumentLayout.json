@@ -1,0 +1,122 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Github repos\\ja-project\\BlazorApp1\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{64372420-2D6C-4238-AD5A-CB175BEFC6F5}|BlazorApp1\\BlazorApp1.csproj|d:\\github repos\\ja-project\\blazorapp1\\blazorapp1\\components\\pages\\imagecompress.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{64372420-2D6C-4238-AD5A-CB175BEFC6F5}|BlazorApp1\\BlazorApp1.csproj|solutionrelative:blazorapp1\\components\\pages\\imagecompress.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{64372420-2D6C-4238-AD5A-CB175BEFC6F5}|BlazorApp1\\BlazorApp1.csproj|d:\\github repos\\ja-project\\blazorapp1\\blazorapp1\\components\\pages\\home.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{64372420-2D6C-4238-AD5A-CB175BEFC6F5}|BlazorApp1\\BlazorApp1.csproj|solutionrelative:blazorapp1\\components\\pages\\home.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{64372420-2D6C-4238-AD5A-CB175BEFC6F5}|BlazorApp1\\BlazorApp1.csproj|d:\\github repos\\ja-project\\blazorapp1\\blazorapp1\\components\\pages\\nativemethods.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{64372420-2D6C-4238-AD5A-CB175BEFC6F5}|BlazorApp1\\BlazorApp1.csproj|solutionrelative:blazorapp1\\components\\pages\\nativemethods.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{64372420-2D6C-4238-AD5A-CB175BEFC6F5}|BlazorApp1\\BlazorApp1.csproj|d:\\github repos\\ja-project\\blazorapp1\\blazorapp1\\components\\layout\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{64372420-2D6C-4238-AD5A-CB175BEFC6F5}|BlazorApp1\\BlazorApp1.csproj|solutionrelative:blazorapp1\\components\\layout\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4E6913A0-1343-44C7-AC41-1EC5ABCD14EF}|JAAsm\\JAAsm.vcxproj|D:\\Github repos\\ja-project\\BlazorApp1\\JAAsm\\JAAsm.asm||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{4E6913A0-1343-44C7-AC41-1EC5ABCD14EF}|JAAsm\\JAAsm.vcxproj|solutionrelative:JAAsm\\JAAsm.asm||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4E6913A0-1343-44C7-AC41-1EC5ABCD14EF}|JAAsm\\JAAsm.vcxproj|D:\\Github repos\\ja-project\\BlazorApp1\\JAAsm\\JAAsm.def||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{4E6913A0-1343-44C7-AC41-1EC5ABCD14EF}|JAAsm\\JAAsm.vcxproj|solutionrelative:JAAsm\\JAAsm.def||{8B382828-6202-11D1-8870-0000F87579D2}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "NavMenu.razor",
+              "DocumentMoniker": "D:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\Components\\Layout\\NavMenu.razor",
+              "RelativeDocumentMoniker": "BlazorApp1\\Components\\Layout\\NavMenu.razor",
+              "ToolTip": "D:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\Components\\Layout\\NavMenu.razor",
+              "RelativeToolTip": "BlazorApp1\\Components\\Layout\\NavMenu.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAA4AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-03T14:34:22.418Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ImageCompress.razor",
+              "DocumentMoniker": "D:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\Components\\Pages\\ImageCompress.razor",
+              "RelativeDocumentMoniker": "BlazorApp1\\Components\\Pages\\ImageCompress.razor",
+              "ToolTip": "D:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\Components\\Pages\\ImageCompress.razor",
+              "RelativeToolTip": "BlazorApp1\\Components\\Pages\\ImageCompress.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-03T14:29:11.678Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Home.razor",
+              "DocumentMoniker": "D:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\Components\\Pages\\Home.razor",
+              "RelativeDocumentMoniker": "BlazorApp1\\Components\\Pages\\Home.razor",
+              "ToolTip": "D:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\Components\\Pages\\Home.razor",
+              "RelativeToolTip": "BlazorApp1\\Components\\Pages\\Home.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-03T14:12:41.488Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "JAAsm.def",
+              "DocumentMoniker": "D:\\Github repos\\ja-project\\BlazorApp1\\JAAsm\\JAAsm.def",
+              "RelativeDocumentMoniker": "JAAsm\\JAAsm.def",
+              "ToolTip": "D:\\Github repos\\ja-project\\BlazorApp1\\JAAsm\\JAAsm.def",
+              "RelativeToolTip": "JAAsm\\JAAsm.def",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001913|",
+              "WhenOpened": "2024-10-03T14:11:46.563Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "JAAsm.asm",
+              "DocumentMoniker": "D:\\Github repos\\ja-project\\BlazorApp1\\JAAsm\\JAAsm.asm",
+              "RelativeDocumentMoniker": "JAAsm\\JAAsm.asm",
+              "ToolTip": "D:\\Github repos\\ja-project\\BlazorApp1\\JAAsm\\JAAsm.asm",
+              "RelativeToolTip": "JAAsm\\JAAsm.asm",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2024-10-03T14:11:46.009Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "NativeMethods.cs",
+              "DocumentMoniker": "D:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\Components\\Pages\\NativeMethods.cs",
+              "RelativeDocumentMoniker": "BlazorApp1\\Components\\Pages\\NativeMethods.cs",
+              "ToolTip": "D:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\Components\\Pages\\NativeMethods.cs",
+              "RelativeToolTip": "BlazorApp1\\Components\\Pages\\NativeMethods.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-03T14:10:01.787Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
