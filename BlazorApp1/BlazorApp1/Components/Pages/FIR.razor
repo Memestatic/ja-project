@@ -1,0 +1,21 @@
+﻿@page "/fir"
+@attribute [StreamRendering]
+
+<PageTitle>FIR</PageTitle>
+
+<div class="container mt-4">
+    <h1 class="mb-4">FIR low pass filter</h1>
+
+    <p>Result from native function: @result</p>
+
+    <div class="mb-3">
+        <label for="soundFile">Select audio file: </label>
+        <input type="file" class="form-control" id="soundFile" accept="audio/*" />
+    </div>
+
+    
+</div>
+
+@code {
+    int result = NativeMethods.MyAdd(1, 2);
+}
