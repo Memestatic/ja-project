@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "v4faCNpLW4/kJe4z4aNC225a2YnhjKObo4dZp3JrMYI=",
+  "Hash": "k8ZmObX0flvp8A4mmqchr98YM5kYShIk8c7SLiSStug=",
   "Source": "BlazorApp1",
   "BasePath": "_content/BlazorApp1",
   "Mode": "Default",
@@ -10,17 +10,17 @@
     {
       "Name": "BlazorApp1\\wwwroot",
       "Source": "BlazorApp1",
-      "ContentRoot": "C:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\wwwroot\\",
+      "ContentRoot": "D:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\wwwroot\\",
       "BasePath": "_content/BlazorApp1",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "C:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\obj\\Debug\\net8.0\\scopedcss\\bundle\\BlazorApp1.styles.css",
+      "Identity": "D:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\obj\\Debug\\net8.0\\scopedcss\\bundle\\BlazorApp1.styles.css",
       "SourceId": "BlazorApp1",
       "SourceType": "Computed",
-      "ContentRoot": "C:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\obj\\Debug\\net8.0\\scopedcss\\bundle\\",
+      "ContentRoot": "D:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\obj\\Debug\\net8.0\\scopedcss\\bundle\\",
       "BasePath": "_content/BlazorApp1",
       "RelativePath": "BlazorApp1.styles.css",
       "AssetKind": "All",
@@ -33,13 +33,13 @@
       "AssetTraitValue": "ApplicationBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\obj\\Debug\\net8.0\\scopedcss\\bundle\\BlazorApp1.styles.css"
+      "OriginalItemSpec": "D:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\obj\\Debug\\net8.0\\scopedcss\\bundle\\BlazorApp1.styles.css"
     },
     {
-      "Identity": "C:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\BlazorApp1.bundle.scp.css",
+      "Identity": "D:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\BlazorApp1.bundle.scp.css",
       "SourceId": "BlazorApp1",
       "SourceType": "Computed",
-      "ContentRoot": "C:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\",
+      "ContentRoot": "D:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\",
       "BasePath": "_content/BlazorApp1",
       "RelativePath": "BlazorApp1.bundle.scp.css",
       "AssetKind": "All",
@@ -52,13 +52,13 @@
       "AssetTraitValue": "ProjectBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\BlazorApp1.bundle.scp.css"
+      "OriginalItemSpec": "D:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\BlazorApp1.bundle.scp.css"
     },
     {
-      "Identity": "C:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\wwwroot\\app.css",
+      "Identity": "D:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\wwwroot\\app.css",
       "SourceId": "BlazorApp1",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\wwwroot\\",
+      "ContentRoot": "D:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\wwwroot\\",
       "BasePath": "_content/BlazorApp1",
       "RelativePath": "app.css",
       "AssetKind": "All",
@@ -74,10 +74,10 @@
       "OriginalItemSpec": "wwwroot\\app.css"
     },
     {
-      "Identity": "C:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\wwwroot\\bootstrap\\bootstrap.min.css",
+      "Identity": "D:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\wwwroot\\bootstrap\\bootstrap.min.css",
       "SourceId": "BlazorApp1",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\wwwroot\\",
+      "ContentRoot": "D:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\wwwroot\\",
       "BasePath": "_content/BlazorApp1",
       "RelativePath": "bootstrap/bootstrap.min.css",
       "AssetKind": "All",
@@ -93,10 +93,10 @@
       "OriginalItemSpec": "wwwroot\\bootstrap\\bootstrap.min.css"
     },
     {
-      "Identity": "C:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\wwwroot\\bootstrap\\bootstrap.min.css.map",
+      "Identity": "D:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\wwwroot\\bootstrap\\bootstrap.min.css.map",
       "SourceId": "BlazorApp1",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\wwwroot\\",
+      "ContentRoot": "D:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\wwwroot\\",
       "BasePath": "_content/BlazorApp1",
       "RelativePath": "bootstrap/bootstrap.min.css.map",
       "AssetKind": "All",
@@ -112,10 +112,10 @@
       "OriginalItemSpec": "wwwroot\\bootstrap\\bootstrap.min.css.map"
     },
     {
-      "Identity": "C:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\wwwroot\\favicon.png",
+      "Identity": "D:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\wwwroot\\favicon.png",
       "SourceId": "BlazorApp1",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\wwwroot\\",
+      "ContentRoot": "D:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\wwwroot\\",
       "BasePath": "_content/BlazorApp1",
       "RelativePath": "favicon.png",
       "AssetKind": "All",

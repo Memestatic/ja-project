@@ -1,21 +1,89 @@
 ﻿@page "/fir"
-@attribute [StreamRendering]
+@rendermode InteractiveServer
+@inject IJSRuntime _js
 
 <PageTitle>FIR</PageTitle>
 
 <div class="container mt-4">
     <h1 class="mb-4">FIR low pass filter</h1>
 
-    <p>Result from native function: @result</p>
+    <InputFile OnChange="HandleFileSelected" MaxFileSize="5242880" />
+    <button @onclick="ApplyFIRFilter" disabled="@isFileNotSelected">Apply FIR Filter</button>
 
-    <div class="mb-3">
-        <label for="soundFile">Select audio file: </label>
-        <input type="file" class="form-control" id="soundFile" accept="audio/*" />
-    </div>
-
+    @if (!string.IsNullOrEmpty(audioSrc))
+    {
+        <div class="card bg-light mt-5 p-2 w-50">
+            <h4>Filtered Audio:</h4>
+            <audio controls>
+                <source src="@audioSrc" type="audio/wav" />
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+    }
     
 </div>
 
+
 @code {
-    int result = NativeMethods.MyAdd(1, 2);
+    private IBrowserFile selectedFile;
+    private bool isFileNotSelected = true;
+    private string audioSrc; // Ścieżka do przefiltrowanego dźwięku
+
+    private void HandleFileSelected(InputFileChangeEventArgs e)
+    {
+        Console.WriteLine("File selected");
+        selectedFile = e.File;
+        isFileNotSelected = selectedFile == null || selectedFile.ContentType != "audio/wav"; // Dodano sprawdzenie typu pliku
+        StateHasChanged();
+    }
+
+
+
+
+    private async Task ApplyFIRFilter()
+    {
+        if (selectedFile == null)
+        {
+            Console.WriteLine("No file selected.");
+            return;
+        }
+
+        try
+        {
+            // Tworzymy bufor do odczytu
+            const int bufferSize = 4096; // Rozmiar bufora
+            byte[] buffer = new byte[bufferSize];
+            using (var stream = selectedFile.OpenReadStream(5 * 1024 * 1024))
+            {
+                using (var ms = new MemoryStream(5 * 1024 * 1024))
+                {
+                    int bytesRead;
+                    while ((bytesRead = await stream.ReadAsync(buffer, 0, buffer.Length)) > 0)
+                    {
+                        // Zapisujemy odczytane bajty do MemoryStream
+                        ms.Write(buffer, 0, bytesRead);
+                    }
+
+                    // Konwertujemy MemoryStream na tablicę bajtów
+                    byte[] audioData = ms.ToArray();
+
+                    // Tworzymy źródło audio w formacie Base64
+                    audioSrc = $"data:audio/wav;base64,{Convert.ToBase64String(audioData)}";
+                }
+            }
+
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error reading file: {ex.Message}");
+        }
+
+    }
+
+    private Task<byte[]> ProcessFIRFilter(byte[] audioData)
+    {
+        // Implementacja filtra FIR (jak w poprzednim przykładzie)
+        // Na razie zwrócimy te same dane, ale tutaj należy zaimplementować właściwe przetwarzanie dźwięku
+        return Task.FromResult(audioData); // Tymczasowe zwrócenie niezmodyfikowanych danych
+    }
 }
