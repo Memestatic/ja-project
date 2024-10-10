@@ -1,0 +1,6 @@
+﻿  Assembling JAAsm.asm...
+     Trwa tworzenie biblioteki C:\Github repos\ja-project\BlazorApp1\x64\Release\JAAsm.lib i obiektu C:\Github repos\ja-project\BlazorApp1\x64\Release\JAAsm.exp
+JAAsm.exp : warning LNK4070: /OUT: dyrektywa JADll.dll w pliku .EXP jest inna niż nazwa pliku wyjściowego „C:\Github repos\ja-project\BlazorApp1\x64\Release\JAAsm.dll”; dyrektywa została zignorowana
+  LINK : określono opcję /LTCG, lecz generowanie kodu nie było wymagane; usuń opcję /LTCG z wiersza polecenia konsolidatora w celu podwyższenia wydajności konsolidatora
+JAAsm.exp : warning LNK4070: /OUT: dyrektywa JADll.dll w pliku .EXP jest inna niż nazwa pliku wyjściowego „C:\Github repos\ja-project\BlazorApp1\x64\Release\JAAsm.dll”; dyrektywa została zignorowana
+  JAAsm.vcxproj -> C:\Github repos\ja-project\BlazorApp1\x64\Release\JAAsm.dll
