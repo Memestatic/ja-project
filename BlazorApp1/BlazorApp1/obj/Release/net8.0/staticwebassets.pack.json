@@ -1,23 +1,23 @@
 {
   "Files": [
     {
-      "Id": "C:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\obj\\Release\\net8.0\\scopedcss\\projectbundle\\BlazorApp1.bundle.scp.css",
+      "Id": "D:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\obj\\Release\\net8.0\\scopedcss\\projectbundle\\BlazorApp1.bundle.scp.css",
       "PackagePath": "staticwebassets\\BlazorApp1.bundle.scp.css"
     },
     {
-      "Id": "C:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\wwwroot\\app.css",
+      "Id": "D:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\wwwroot\\app.css",
       "PackagePath": "staticwebassets\\app.css"
     },
     {
-      "Id": "C:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\wwwroot\\bootstrap\\bootstrap.min.css",
+      "Id": "D:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\wwwroot\\bootstrap\\bootstrap.min.css",
       "PackagePath": "staticwebassets\\bootstrap\\bootstrap.min.css"
     },
     {
-      "Id": "C:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\wwwroot\\bootstrap\\bootstrap.min.css.map",
+      "Id": "D:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\wwwroot\\bootstrap\\bootstrap.min.css.map",
       "PackagePath": "staticwebassets\\bootstrap\\bootstrap.min.css.map"
     },
     {
-      "Id": "C:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\wwwroot\\favicon.png",
+      "Id": "D:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\wwwroot\\favicon.png",
       "PackagePath": "staticwebassets\\favicon.png"
     },
     {

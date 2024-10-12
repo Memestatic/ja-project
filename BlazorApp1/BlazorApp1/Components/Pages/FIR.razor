@@ -1,4 +1,5 @@
 ﻿@page "/fir"
+@using System.Diagnostics
 @rendermode InteractiveServer
 @inject IJSRuntime _js
 
@@ -8,7 +9,7 @@
     <h1 class="mb-4">FIR low pass filter</h1>
 
     <InputFile OnChange="HandleFileSelected" MaxFileSize="5242880" />
-    <button @onclick="ApplyFIRFilter" disabled="@isFileNotSelected">Apply FIR Filter</button>
+    <button @onclick="Start" disabled="@isFileNotSelected">Apply FIR Filter</button>
 
     @if (!string.IsNullOrEmpty(audioSrc))
     {
@@ -20,15 +21,16 @@
             </audio>
         </div>
     }
+
+    <p>
+        Czas wykonania algorytmu: @timeResult
+    </p>
     
 </div>
 
 
 @code {
-
-
-    int result = NativeMethods.MyMinus(5, 4);
-
+    double timeResult = 0;
     private IBrowserFile selectedFile;
     private bool isFileNotSelected = true;
     private string audioSrc; // Ścieżka do przefiltrowanego dźwięku
@@ -42,9 +44,7 @@
     }
 
 
-
-
-    private async Task ApplyFIRFilter()
+    private async Task Start()
     {
         if (selectedFile == null)
         {
@@ -54,40 +54,61 @@
 
         try
         {
-            // Tworzymy bufor do odczytu
-            const int bufferSize = 4096; // Rozmiar bufora
+            const int bufferSize = 4096;
             byte[] buffer = new byte[bufferSize];
+
+            Stopwatch stopwatch = new();
+
             using (var stream = selectedFile.OpenReadStream(5 * 1024 * 1024))
             {
                 using (var ms = new MemoryStream(5 * 1024 * 1024))
                 {
                     int bytesRead;
+                    List<Task<byte[]>> processingTasks = new List<Task<byte[]>>();
+
                     while ((bytesRead = await stream.ReadAsync(buffer, 0, buffer.Length)) > 0)
                     {
-                        // Zapisujemy odczytane bajty do MemoryStream
-                        ms.Write(buffer, 0, bytesRead);
+                        byte[] audioChunk = new byte[bytesRead];
+                        Array.Copy(buffer, audioChunk, bytesRead);
+
+                        // Przetwarzaj każdy bufor asynchronicznie
+                        processingTasks.Add(ProcessFIRFilter(audioChunk));
                     }
 
-                    // Konwertujemy MemoryStream na tablicę bajtów
-                    byte[] audioData = ms.ToArray();
+                    stopwatch.Start();
+                    byte[][] processedChunks = await Task.WhenAll(processingTasks);
+                    stopwatch.Stop();
 
-                    // Tworzymy źródło audio w formacie Base64
-                    audioSrc = $"data:audio/wav;base64,{Convert.ToBase64String(audioData)}";
+                    timeResult = stopwatch.Elapsed.TotalNanoseconds;
+
+                    StateHasChanged();
+
+                    // Połącz przetworzone bufory
+                    foreach (var chunk in processedChunks)
+                    {
+                        ms.Write(chunk, 0, chunk.Length);
+                    }
+
+                    byte[] filteredAudioData = ms.ToArray();
+
+                    audioSrc = $"data:audio/wav;base64,{Convert.ToBase64String(filteredAudioData)}";
+
+                    Console.WriteLine("Original audio data size: " + filteredAudioData.Length);
+                    Console.WriteLine("Base64 encoded audio data size: " + audioSrc.Length);
+
+                    StateHasChanged();
                 }
             }
-
         }
         catch (Exception ex)
         {
             Console.WriteLine($"Error reading file: {ex.Message}");
         }
-
     }
 
     private Task<byte[]> ProcessFIRFilter(byte[] audioData)
-    {
-        // Implementacja filtra FIR (jak w poprzednim przykładzie)
-        // Na razie zwrócimy te same dane, ale tutaj należy zaimplementować właściwe przetwarzanie dźwięku
-        return Task.FromResult(audioData); // Tymczasowe zwrócenie niezmodyfikowanych danych
-    }
+	{
+        return Task.FromResult(audioData);
+	}
+
 }
