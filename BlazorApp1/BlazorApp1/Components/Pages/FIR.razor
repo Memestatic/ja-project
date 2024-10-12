@@ -11,6 +11,14 @@
     <InputFile OnChange="HandleFileSelected" MaxFileSize="5242880" />
     <button @onclick="Start" disabled="@isFileNotSelected">Apply FIR Filter</button>
 
+    <div class="btn-group me-2 mt-3" role="group">
+        <button type="button" class="btn btn-primary" @onclick="() => SetThreadCount(1)">1</button>
+        <button type="button" class="btn btn-primary" @onclick="() => SetThreadCount(2)">2</button>
+        <button type="button" class="btn btn-primary" @onclick="() => SetThreadCount(4)">4</button>
+        <button type="button" class="btn btn-primary" @onclick="() => SetThreadCount(maxThreads)">@maxThreads</button>
+        
+    </div>
+
     @if (!string.IsNullOrEmpty(audioSrc))
     {
         <div class="card bg-light mt-5 p-2 w-50">
@@ -23,7 +31,7 @@
     }
 
     <p>
-        Czas wykonania algorytmu: @timeResult
+        Czas wykonania algorytmu: @timeResult ns
     </p>
     
 </div>
@@ -34,6 +42,8 @@
     private IBrowserFile selectedFile;
     private bool isFileNotSelected = true;
     private string audioSrc; // Ścieżka do przefiltrowanego dźwięku
+    private int threadCount = 1; // Domyślna liczba wątków
+    private int maxThreads = Environment.ProcessorCount; // Maksymalna liczba wątków
 
     private void HandleFileSelected(InputFileChangeEventArgs e)
     {
@@ -43,6 +53,11 @@
         StateHasChanged();
     }
 
+    private void SetThreadCount(int count)
+    {
+        threadCount = count;
+        StateHasChanged();
+    }
 
     private async Task Start()
     {
