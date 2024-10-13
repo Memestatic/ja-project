@@ -1,0 +1,6 @@
+﻿  pch.cpp
+  dllmain.cpp
+  exported_functions.cpp
+  Generating Code...
+     Creating library D:\Github repos\ja-project\BlazorApp1\x64\Debug\JAC.lib and object D:\Github repos\ja-project\BlazorApp1\x64\Debug\JAC.exp
+  JAC.vcxproj -> D:\Github repos\ja-project\BlazorApp1\x64\Debug\JAC.dll

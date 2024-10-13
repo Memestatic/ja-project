@@ -5,37 +5,41 @@
 
 <PageTitle>FIR</PageTitle>
 
-<div class="container mt-4">
-    <h1 class="mb-4">FIR low pass filter</h1>
+
+<div class="card card-body m-5 w-50">
+    <h1 class="mb-4">FIR Low Pass Filter</h1>
 
     <InputFile OnChange="HandleFileSelected" MaxFileSize="5242880" />
 
-    <div class="btn-group me-2 mt-3" role="group">
-        <button type="button" class="btn btn-primary" @onclick="() => SetThreadCount(1)">1</button>
-        <button type="button" class="btn btn-primary" @onclick="() => SetThreadCount(2)">2</button>
-        <button type="button" class="btn btn-primary" @onclick="() => SetThreadCount(4)">4</button>
-        <button type="button" class="btn btn-primary" @onclick="() => SetThreadCount(maxThreads)">@maxThreads</button>
-
+    <div class="mt-3">
+        <h5>Select the number of threads:</h5>
+        <div class="btn-group me-2 mt-2" role="group">
+            <button type="button" class="btn btn-primary" @onclick="() => SetThreadCount(1)">1</button>
+            <button type="button" class="btn btn-primary" @onclick="() => SetThreadCount(2)">2</button>
+            <button type="button" class="btn btn-primary" @onclick="() => SetThreadCount(4)">4</button>
+            <button type="button" class="btn btn-primary" @onclick="() => SetThreadCount(maxThreads)">@maxThreads</button>
+        </div>
     </div>
 
-    <button @onclick="Start" disabled="@isFileNotSelected">Apply FIR Filter</button>
-
-    @if (!string.IsNullOrEmpty(audioSrc))
-    {
-        <div class="card bg-light mt-5 p-2 w-50">
-            <h4>Filtered Audio:</h4>
-            <audio controls>
-                <source src="@audioSrc" type="audio/wav" />
-                Your browser does not support the audio element.
-            </audio>
-        </div>
-    }
-
-    <p>
-        Czas wykonania algorytmu: @timeResult ms
-    </p>
-
+    <button class="btn btn-success mt-3" @onclick="Start" disabled="@isFileNotSelected">Apply FIR Filter</button>
 </div>
+
+@if (!string.IsNullOrEmpty(audioSrc))
+{
+    <div class="card bg-light mt-5 p-3 w-75">
+        <h4>Filtered Audio:</h4>
+        <audio controls class="w-100">
+            <source src="@audioSrc" type="audio/wav" />
+            Your browser does not support the audio element.
+        </audio>
+        
+        <p class="mt-3">
+            Czas wykonania algorytmu: @timeResult ms
+        </p>
+    </div>
+}
+
+
 
 
 @code {
@@ -70,7 +74,7 @@
 
         try
         {
-            const int bufferSize = 4096;
+            const int bufferSize = 8192;
             byte[] buffer = new byte[bufferSize];
 
             Stopwatch stopwatch = new();

@@ -10,7 +10,7 @@
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
-      "VerticalTabListWidth": 156,
+      "VerticalTabListWidth": 100,
       "DocumentGroups": [
         {
           "DockedWidth": 200,
@@ -24,7 +24,7 @@
               "RelativeDocumentMoniker": "BlazorApp1\\Components\\Pages\\FIR.razor",
               "ToolTip": "D:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\Components\\Pages\\FIR.razor",
               "RelativeToolTip": "BlazorApp1\\Components\\Pages\\FIR.razor",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB8AAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAADwAAAAAAAAAAAAAAFMAAAA4AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-10-10T12:45:28.132Z",
               "EditorCaption": ""
