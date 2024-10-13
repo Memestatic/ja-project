@@ -9,15 +9,16 @@
     <h1 class="mb-4">FIR low pass filter</h1>
 
     <InputFile OnChange="HandleFileSelected" MaxFileSize="5242880" />
-    <button @onclick="Start" disabled="@isFileNotSelected">Apply FIR Filter</button>
 
     <div class="btn-group me-2 mt-3" role="group">
         <button type="button" class="btn btn-primary" @onclick="() => SetThreadCount(1)">1</button>
         <button type="button" class="btn btn-primary" @onclick="() => SetThreadCount(2)">2</button>
         <button type="button" class="btn btn-primary" @onclick="() => SetThreadCount(4)">4</button>
         <button type="button" class="btn btn-primary" @onclick="() => SetThreadCount(maxThreads)">@maxThreads</button>
-        
+
     </div>
+
+    <button @onclick="Start" disabled="@isFileNotSelected">Apply FIR Filter</button>
 
     @if (!string.IsNullOrEmpty(audioSrc))
     {
@@ -31,9 +32,9 @@
     }
 
     <p>
-        Czas wykonania algorytmu: @timeResult ns
+        Czas wykonania algorytmu: @timeResult ms
     </p>
-    
+
 </div>
 
 
@@ -79,22 +80,47 @@
                 using (var ms = new MemoryStream(5 * 1024 * 1024))
                 {
                     int bytesRead;
-                    List<Task<byte[]>> processingTasks = new List<Task<byte[]>>();
+                    List<byte[]> processedChunks = new List<byte[]>();
+                    List<Thread> threads = new List<Thread>();
+
+                    stopwatch.Start();
 
                     while ((bytesRead = await stream.ReadAsync(buffer, 0, buffer.Length)) > 0)
                     {
                         byte[] audioChunk = new byte[bytesRead];
                         Array.Copy(buffer, audioChunk, bytesRead);
 
-                        // Przetwarzaj każdy bufor asynchronicznie
-                        processingTasks.Add(ProcessFIRFilter(audioChunk));
+                        // Tworzenie i uruchamianie wątków
+                        var thread = new Thread(() =>
+                        {
+                            var processedChunk = ProcessFIRFilter(audioChunk);
+                            lock (processedChunks)
+                            {
+                                processedChunks.Add(processedChunk);
+                            }
+                        });
+
+                        threads.Add(thread);
+                        thread.Start();
+
+                        if (threads.Count >= threadCount)
+                        {
+                            foreach (var t in threads)
+                            {
+                                t.Join();
+                            }
+                            threads.Clear();
+                        }
                     }
 
-                    stopwatch.Start();
-                    byte[][] processedChunks = await Task.WhenAll(processingTasks);
+                    foreach (var t in threads)
+                    {
+                        t.Join();
+                    }
+
                     stopwatch.Stop();
 
-                    timeResult = stopwatch.Elapsed.TotalNanoseconds;
+                    timeResult = stopwatch.Elapsed.TotalMilliseconds;
 
                     StateHasChanged();
 
@@ -121,9 +147,8 @@
         }
     }
 
-    private Task<byte[]> ProcessFIRFilter(byte[] audioData)
-	{
-        return Task.FromResult(audioData);
-	}
-
+    private byte[] ProcessFIRFilter(byte[] audioData)
+    {
+        return audioData; // Pusty algorytm, tylko zwraca dane
+    }
 }
