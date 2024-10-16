@@ -31,6 +31,7 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+<<<<<<< HEAD
               "Title": "NativeMethods.cs",
               "DocumentMoniker": "C:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\Components\\Pages\\NativeMethods.cs",
               "RelativeDocumentMoniker": "BlazorApp1\\Components\\Pages\\NativeMethods.cs",
@@ -65,6 +66,16 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
               "WhenOpened": "2024-10-15T06:10:23.342Z",
+=======
+              "Title": "FIR.razor",
+              "DocumentMoniker": "D:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\Components\\Pages\\FIR.razor",
+              "RelativeDocumentMoniker": "BlazorApp1\\Components\\Pages\\FIR.razor",
+              "ToolTip": "D:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\Components\\Pages\\FIR.razor",
+              "RelativeToolTip": "BlazorApp1\\Components\\Pages\\FIR.razor",
+              "ViewState": "AgIAAGYAAAAAAAAAAAAAAJYAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-10T12:45:28.132Z",
+>>>>>>> 3d34990e6a677a8cf87e0d4440147b2c71381b4b
               "EditorCaption": ""
             }
           ]
