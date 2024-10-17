@@ -1,4 +1,1 @@
-﻿  Assembling JAAsm.asm...
-     Trwa tworzenie biblioteki C:\Github repos\ja-project\BlazorApp1\x64\Debug\JAAsm.lib i obiektu C:\Github repos\ja-project\BlazorApp1\x64\Debug\JAAsm.exp
-JAAsm.exp : warning LNK4070: /OUT: dyrektywa JADll.dll w pliku .EXP jest inna niż nazwa pliku wyjściowego „C:\Github repos\ja-project\BlazorApp1\x64\Debug\JAAsm.dll”; dyrektywa została zignorowana
-  JAAsm.vcxproj -> C:\Github repos\ja-project\BlazorApp1\x64\Debug\JAAsm.dll
+﻿  JAAsm.vcxproj -> D:\Github repos\ja-project\BlazorApp1\x64\Debug\JAAsm.dll
