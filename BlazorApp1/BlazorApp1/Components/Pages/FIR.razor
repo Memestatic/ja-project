@@ -5,7 +5,6 @@
 
 <PageTitle>FIR</PageTitle>
 
-
 <div class="card card-body m-5 w-50">
     <h1 class="mb-4">FIR Low Pass Filter</h1>
 
@@ -32,29 +31,28 @@
             <source src="@audioSrc" type="audio/wav" />
             Your browser does not support the audio element.
         </audio>
-        
+
         <p class="mt-3">
             Czas wykonania algorytmu: @timeResult ms
         </p>
     </div>
 }
 
-
-
-
 @code {
     double timeResult = 0;
     private IBrowserFile selectedFile;
     private bool isFileNotSelected = true;
-    private string audioSrc; // Ścieżka do przefiltrowanego dźwięku
-    private int threadCount = 1; // Domyślna liczba wątków
-    private int maxThreads = Environment.ProcessorCount; // Maksymalna liczba wątków
+    private string audioSrc; // Path to the filtered audio
+    private int threadCount = 1; // Default number of threads
+    private int maxThreads = Environment.ProcessorCount; // Maximum number of threads
+
+    private WavFileProcessor wavFileProcessor = new WavFileProcessor();
 
     private void HandleFileSelected(InputFileChangeEventArgs e)
     {
         Console.WriteLine("File selected");
         selectedFile = e.File;
-        isFileNotSelected = selectedFile == null || selectedFile.ContentType != "audio/wav"; // Dodano sprawdzenie typu pliku
+        isFileNotSelected = selectedFile == null || selectedFile.ContentType != "audio/wav"; // Added file type check
         StateHasChanged();
     }
 
@@ -74,85 +72,60 @@
 
         try
         {
-            const int bufferSize = 8192;
-            byte[] buffer = new byte[bufferSize];
-
             Stopwatch stopwatch = new();
 
-            using (var stream = selectedFile.OpenReadStream(5 * 1024 * 1024))
+            await wavFileProcessor.ConvertWavToFloatArray(selectedFile);
+
+            float[] floatData = wavFileProcessor.FloatData;
+            int totalSamples = floatData.Length;
+            float[][] processedChunks = new float[totalSamples / threadCount][];
+            List<Thread> threads = new List<Thread>();
+
+            stopwatch.Start();
+
+            for (int i = 0; i < threadCount; i++)
             {
-                using (var ms = new MemoryStream(5 * 1024 * 1024))
+                int start = i * (totalSamples / threadCount);
+                int end = (i + 1) * (totalSamples / threadCount);
+                int index = i;
+
+                var thread = new Thread(() =>
                 {
-                    int bytesRead;
-                    List<byte[]> processedChunks = new List<byte[]>();
-                    List<Thread> threads = new List<Thread>();
+                    float[] chunk = new float[end - start];
+                    Array.Copy(floatData, start, chunk, 0, end - start);
+                    processedChunks[index] = ProcessFIRFilter(chunk);
+                });
 
-                    stopwatch.Start();
-
-                    while ((bytesRead = await stream.ReadAsync(buffer, 0, buffer.Length)) > 0)
-                    {
-                        byte[] audioChunk = new byte[bytesRead];
-                        Array.Copy(buffer, audioChunk, bytesRead);
-
-                        // Tworzenie i uruchamianie wątków
-                        var thread = new Thread(() =>
-                        {
-                            var processedChunk = ProcessFIRFilter(audioChunk);
-                            lock (processedChunks)
-                            {
-                                processedChunks.Add(processedChunk);
-                            }
-                        });
-
-                        threads.Add(thread);
-                        thread.Start();
-
-                        if (threads.Count >= threadCount)
-                        {
-                            foreach (var t in threads)
-                            {
-                                t.Join();
-                            }
-                            threads.Clear();
-                        }
-                    }
-
-                    foreach (var t in threads)
-                    {
-                        t.Join();
-                    }
-
-                    stopwatch.Stop();
-
-                    timeResult = stopwatch.Elapsed.TotalMilliseconds;
-
-                    StateHasChanged();
-
-                    // Połącz przetworzone bufory
-                    foreach (var chunk in processedChunks)
-                    {
-                        ms.Write(chunk, 0, chunk.Length);
-                    }
-
-                    byte[] filteredAudioData = ms.ToArray();
-
-                    audioSrc = $"data:audio/wav;base64,{Convert.ToBase64String(filteredAudioData)}";
-
-                    Console.WriteLine("Original audio data size: " + filteredAudioData.Length);
-                    Console.WriteLine("Base64 encoded audio data size: " + audioSrc.Length);
-
-                    StateHasChanged();
-                }
+                threads.Add(thread);
+                thread.Start();
             }
+
+            foreach (var t in threads)
+            {
+                t.Join();
+            }
+
+            stopwatch.Stop();
+            timeResult = stopwatch.Elapsed.TotalMilliseconds;
+
+            float[] processedData = new float[totalSamples];
+            for (int i = 0; i < threadCount; i++)
+            {
+                Array.Copy(processedChunks[i], 0, processedData, i * (totalSamples / threadCount), processedChunks[i].Length);
+            }
+
+            audioSrc = wavFileProcessor.ConvertFloatArrayToWav();
+            StateHasChanged();
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"Error reading file: {ex.Message}");
+            Console.WriteLine($"Error processing file: {ex.Message}");
         }
     }
 
-    private byte[] ProcessFIRFilter(byte[] audioData)
+    private float[] ProcessFIRFilter(float[] audioData)
     {
-        return audioData; // Pusty algorytm, tylko zwraca dane
+        // Placeholder for FIR filter algorithm
+        return audioData; // Just returns the data as-is
     }
 }
