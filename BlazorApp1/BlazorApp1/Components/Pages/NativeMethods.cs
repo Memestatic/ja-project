@@ -12,4 +12,13 @@ public static class NativeMethods
 
     [DllImport("../x64/Debug/JAC.dll", CallingConvention = CallingConvention.Cdecl)]
     public static extern int MyMinus(int a, int b);
+
+
+
+    // C
+
+    [DllImport("../x64/Debug/JAC.dll", CallingConvention = CallingConvention.Cdecl)]
+    public static extern IntPtr ProcessFIRFilter(float[] input, float[] coefficients, int inputLength, int coefficientsLength);
+    [DllImport("../x64/Debug/JAC.dll", CallingConvention = CallingConvention.Cdecl)]
+    public static extern void FreeMemory(IntPtr ptr);
 }
