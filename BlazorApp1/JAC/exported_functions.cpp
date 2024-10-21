@@ -1,10 +1,5 @@
 #include "pch.h"
 
-extern "C" __declspec(dllexport) int MyMinus(int a, int b) {
-    return a - b;
-}
-
-
 
 extern "C" __declspec(dllexport) float* ProcessFIRFilter(float* input, float* coefficients, int inputLength, int coefficientsLength) {
     float* output = new float[inputLength];

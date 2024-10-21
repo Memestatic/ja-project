@@ -46,6 +46,7 @@
     private string audioSrc; // Path to the filtered audio
     private int threadCount = 1; // Default number of threads
     private int maxThreads = Environment.ProcessorCount; // Maximum number of threads
+    private float[] coefficients; // FIR filter coefficients
 
     private WavFileProcessor wavFileProcessor = new WavFileProcessor();
 
