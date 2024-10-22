@@ -5,11 +5,7 @@ extern "C" __declspec(dllexport) float* ProcessFIRFilter(float* input, float* co
     float* output = new float[inputLength];
 	for (int i = 0; i < inputLength; i++) {
 		output[i] = input[i];
-		/*for (int j = 0; j < coefficientsLength; j++) {
-			if (i - j >= 0) {
-				output[i] += input[i - j] * coefficients[j];
-			}
-		}*/
+
 	}
     return output;
 }
