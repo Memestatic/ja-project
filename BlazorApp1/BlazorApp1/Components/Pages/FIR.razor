@@ -2,7 +2,6 @@
 @using System.Diagnostics
 @using System.Runtime.InteropServices
 @rendermode InteractiveServer
-@inject IJSRuntime _js
 
 <PageTitle>FIR</PageTitle>
 
@@ -142,6 +141,7 @@
             Parallel.For(0, threadCount, i =>
             {
                 ProcessFIR(chunks[i], coefficients, chunks[i].Length, coefficients.Length);
+                
             });
 
             stopwatch.Stop();

@@ -1,10 +1,29 @@
 ﻿@page "/"
-
+@using System.Diagnostics
+@using System.Runtime.InteropServices
 @using BlazorApp1.Components.Pages;
+@rendermode InteractiveServer
 
 <PageTitle>Home</PageTitle>
 
 <h1>Hello!</h1>
 
 <p class="lead">Welcome to FIR low pass filter App</p>
+
+@foreach(var number in numbers)
+{
+	<p>@number</p>
+}
+
+<button @onclick="Start">Multiply</button>
+
+@code{
+	private float[] numbers = { 1.0f, 2.0f, 3.5f };
+
+	private async Task Start()
+	{
+		NativeMethodsAsm.ModifyFloatArray(numbers, numbers.Length);
+		StateHasChanged();
+	}
+}
 
