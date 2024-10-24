@@ -3,20 +3,20 @@
   "WorkspaceRootPath": "D:\\Github repos\\ja-project\\BlazorApp1\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{4E6913A0-1343-44C7-AC41-1EC5ABCD14EF}|JAAsm\\JAAsm.vcxproj|D:\\Github repos\\ja-project\\BlazorApp1\\JAAsm\\JAAsm.asm||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{4E6913A0-1343-44C7-AC41-1EC5ABCD14EF}|JAAsm\\JAAsm.vcxproj|solutionrelative:JAAsm\\JAAsm.asm||{8B382828-6202-11D1-8870-0000F87579D2}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{64372420-2D6C-4238-AD5A-CB175BEFC6F5}|BlazorApp1\\BlazorApp1.csproj|d:\\github repos\\ja-project\\blazorapp1\\blazorapp1\\components\\pages\\nativemethods.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{64372420-2D6C-4238-AD5A-CB175BEFC6F5}|BlazorApp1\\BlazorApp1.csproj|solutionrelative:blazorapp1\\components\\pages\\nativemethods.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{64372420-2D6C-4238-AD5A-CB175BEFC6F5}|BlazorApp1\\BlazorApp1.csproj|d:\\github repos\\ja-project\\blazorapp1\\blazorapp1\\components\\pages\\fir.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{64372420-2D6C-4238-AD5A-CB175BEFC6F5}|BlazorApp1\\BlazorApp1.csproj|solutionrelative:blazorapp1\\components\\pages\\fir.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{64372420-2D6C-4238-AD5A-CB175BEFC6F5}|BlazorApp1\\BlazorApp1.csproj|d:\\github repos\\ja-project\\blazorapp1\\blazorapp1\\components\\pages\\home.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{64372420-2D6C-4238-AD5A-CB175BEFC6F5}|BlazorApp1\\BlazorApp1.csproj|solutionrelative:blazorapp1\\components\\pages\\home.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{64372420-2D6C-4238-AD5A-CB175BEFC6F5}|BlazorApp1\\BlazorApp1.csproj|d:\\github repos\\ja-project\\blazorapp1\\blazorapp1\\components\\pages\\fir.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{64372420-2D6C-4238-AD5A-CB175BEFC6F5}|BlazorApp1\\BlazorApp1.csproj|solutionrelative:blazorapp1\\components\\pages\\fir.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{64372420-2D6C-4238-AD5A-CB175BEFC6F5}|BlazorApp1\\BlazorApp1.csproj|d:\\github repos\\ja-project\\blazorapp1\\blazorapp1\\components\\pages\\nativemethods.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{64372420-2D6C-4238-AD5A-CB175BEFC6F5}|BlazorApp1\\BlazorApp1.csproj|solutionrelative:blazorapp1\\components\\pages\\nativemethods.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4E6913A0-1343-44C7-AC41-1EC5ABCD14EF}|JAAsm\\JAAsm.vcxproj|D:\\Github repos\\ja-project\\BlazorApp1\\JAAsm\\JAAsm.asm||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{4E6913A0-1343-44C7-AC41-1EC5ABCD14EF}|JAAsm\\JAAsm.vcxproj|solutionrelative:JAAsm\\JAAsm.asm||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{7AD13AD8-813D-45D7-BBAE-088593F4201C}|JAC\\JAC.vcxproj|D:\\Github repos\\ja-project\\BlazorApp1\\JAC\\exported_functions.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -34,7 +34,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
@@ -46,8 +46,7 @@
               "RelativeToolTip": "JAC\\exported_functions.cpp",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-10-24T14:45:28.396Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-24T14:45:28.396Z"
             },
             {
               "$type": "Document",
@@ -63,7 +62,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "JAAsm.asm",
               "DocumentMoniker": "D:\\Github repos\\ja-project\\BlazorApp1\\JAAsm\\JAAsm.asm",
               "RelativeDocumentMoniker": "JAAsm\\JAAsm.asm",
@@ -76,20 +75,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
               "Title": "FIR.razor",
               "DocumentMoniker": "D:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\Components\\Pages\\FIR.razor",
               "RelativeDocumentMoniker": "BlazorApp1\\Components\\Pages\\FIR.razor",
               "ToolTip": "D:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\Components\\Pages\\FIR.razor",
               "RelativeToolTip": "BlazorApp1\\Components\\Pages\\FIR.razor",
-              "ViewState": "AgIAAHUAAAAAAAAAAAAAAH8AAAAiAAAAAAAAAA==",
+              "ViewState": "AgIAAGoAAAAAAAAAAAAAAI4AAABGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-10-24T12:10:20.574Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "NativeMethods.cs",
               "DocumentMoniker": "D:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\Components\\Pages\\NativeMethods.cs",
               "RelativeDocumentMoniker": "BlazorApp1\\Components\\Pages\\NativeMethods.cs",
@@ -102,7 +101,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "Home.razor",
               "DocumentMoniker": "D:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\Components\\Pages\\Home.razor",
               "RelativeDocumentMoniker": "BlazorApp1\\Components\\Pages\\Home.razor",
