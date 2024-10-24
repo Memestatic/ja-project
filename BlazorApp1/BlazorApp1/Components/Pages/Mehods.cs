@@ -97,4 +97,58 @@ namespace BlazorApp1.Components.Pages
             return audioSrc;
         }
     }
+
+    public class Coeffs
+    {
+        public static float[] ComputeCoefficients(double fS, double fL, int N)
+        {
+            // Compute sinc filter
+            double[] h = new double[N];
+            double center = (N - 1) / 2.0;
+
+            for (int i = 0; i < N; i++)
+            {
+                double x = 2 * fL / fS * (i - center);
+                h[i] = Sinc(x);
+            }
+
+            // Apply Hamming window
+            double[] hammingWindow = HammingWindow(N);
+            for (int i = 0; i < N; i++)
+            {
+                h[i] *= hammingWindow[i];
+            }
+
+            // Normalize to get unity gain
+            double sumH = h.Sum();
+            for (int i = 0; i < N; i++)
+            {
+                h[i] /= sumH;
+            }
+
+            // Convert to float[] and return
+            return h.Select(coeff => (float)coeff).ToArray();
+        }
+
+        // Sinc function
+        private static double Sinc(double x)
+        {
+            if (Math.Abs(x) < 1e-10)
+            {
+                return 1.0;  // Special case when x is close to zero
+            }
+            return Math.Sin(Math.PI * x) / (Math.PI * x);
+        }
+
+        // Hamming window generator
+        private static double[] HammingWindow(int N)
+        {
+            double[] w = new double[N];
+            for (int i = 0; i < N; i++)
+            {
+                w[i] = 0.54 - 0.46 * Math.Cos(2 * Math.PI * i / (N - 1));
+            }
+            return w;
+        }
+    }
 }

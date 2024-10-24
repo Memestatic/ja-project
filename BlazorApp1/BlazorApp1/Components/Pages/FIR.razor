@@ -21,6 +21,19 @@
         </div>
     </div>
 
+    <div class="form-check">
+        <input class="form-check-input" type="radio" name="dllMethod" value="ASM" @onchange="() => SelectDllMethod(new string(['A', 's', 'm']))">
+        <label class="form-check-label" for="flexRadioDefault1">
+            ASM Dll
+        </label>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="radio" name="dllMethod" value="C" @onchange="() => SelectDllMethod(new string(['C']))" checked>
+        <label class="form-check-label" for="flexRadioDefault2">
+            C Dll
+        </label>
+    </div>
+
     <button class="btn btn-success mt-3" @onclick="Start" disabled="@isFileNotSelected">Apply FIR Filter</button>
 </div>
 
@@ -47,11 +60,14 @@
     private int threadCount = 1; // Default number of threads
     private int maxThreads = Environment.ProcessorCount; // Maximum number of threads
     private float[] coefficients; // FIR filter coefficients
+    private string selectedDll = "C";
+    private ProcessFIRDelegate ProcessFIR;
 
     private WavFileProcessor wavFileProcessor = new WavFileProcessor();
 
     private void HandleFileSelected(InputFileChangeEventArgs e)
     {
+        audioSrc = null;
         Console.WriteLine("File selected");
         selectedFile = e.File;
         isFileNotSelected = selectedFile == null || selectedFile.ContentType != "audio/wav"; // Added file type check
@@ -62,6 +78,22 @@
     {
         threadCount = count;
         StateHasChanged();
+
+        Console.WriteLine($"Thread count set to: {count}");
+    }
+
+    private void SelectDllMethod(string dll)
+    {
+        if (dll == "C")
+        {
+            ProcessFIR = NativeMethodsC.ProcessFIRFilter;
+        }
+        else if (dll == "Asm")
+        {
+            ProcessFIR = NativeMethodsAsm.ProcessFIRFilter;
+        }
+
+        Console.WriteLine($"Selected DLL: {dll}");
     }
 
     private async Task Start()
@@ -69,6 +101,7 @@
         if (selectedFile == null)
         {
             Console.WriteLine("No file selected.");
+
             return;
         }
 
@@ -79,48 +112,48 @@
             float[] floatData = await wavFileProcessor.ConvertWavToFloatArray(selectedFile);
 
             long totalSamples = floatData.Length;
-            float[][] processedChunks = new float[totalSamples / threadCount][];
-            List<Thread> threads = new List<Thread>();
+            //float[][] processedChunks = new float[totalSamples / threadCount][];
+            float[][] chunks = new float[totalSamples / threadCount][];
 
-            stopwatch.Start();
+            setCoefficents();
 
+            // Split the data into chunks
             for (int i = 0; i < threadCount; i++)
             {
                 long start = i * (totalSamples / threadCount);
                 long end = (i + 1) * (totalSamples / threadCount);
-                int index = i;
 
-                float[] coefficients = new float[] { 0.1f, 0.15f, 0.2f, 0.15f, 0.1f };
+                float[] chunk = new float[end - start];
+                Array.Copy(floatData, start, chunk, 0, end - start);
 
-                var thread = new Thread(() =>
-                {
-                    float[] chunk = new float[end - start];
-                    Array.Copy(floatData, start, chunk, 0, end - start);
-                    IntPtr ptr = NativeMethods.ProcessFIRFilter(chunk, coefficients, chunk.Length, coefficients.Length);
-                    float[] output = new float[chunk.Length];
-                    Marshal.Copy(ptr, output, 0, chunk.Length);
-                    processedChunks[index] = output;
-
-                    NativeMethods.FreeMemory(ptr);
-                });
-
-                threads.Add(thread);
-                thread.Start();
+                chunks[i] = chunk;
             }
 
-            foreach (var t in threads)
+            // Ensure that the DLL method has been selected
+            if (ProcessFIR == null)
             {
-                t.Join();
+                Console.WriteLine("DLL method not selected.");
+                SelectDllMethod("C");
             }
+
+            stopwatch.Start();
+
+            // Use Parallel.For to process FIR filtering in parallel
+            Parallel.For(0, threadCount, i =>
+            {
+                ProcessFIR(chunks[i], coefficients, chunks[i].Length, coefficients.Length);
+            });
 
             stopwatch.Stop();
             timeResult = stopwatch.Elapsed.TotalMilliseconds;
 
+            // Combine processed chunks back into the final array
             float[] processedData = new float[totalSamples];
             for (int i = 0; i < threadCount; i++)
             {
-                Array.Copy(processedChunks[i], 0, processedData, i * (totalSamples / threadCount), processedChunks[i].Length);
+                Array.Copy(chunks[i], 0, processedData, i * (totalSamples / threadCount), chunks[i].Length);
             }
+
 
             audioSrc = wavFileProcessor.ConvertFloatArrayToWav(processedData);
             StateHasChanged();
@@ -130,4 +163,10 @@
             Console.WriteLine($"Error processing file: {ex.Message}, {ex.StackTrace}");
         }
     }
+
+    void setCoefficents()
+    {
+        this.coefficients = Coeffs.ComputeCoefficients(44100, 150, 61);
+    }
+  
 }
