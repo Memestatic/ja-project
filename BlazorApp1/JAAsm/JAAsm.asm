@@ -1,61 +1,16 @@
-section .data
+.code
+; Function: ProcessFIRFilter
+; Parameters:
+;   input: pointer to input float array (passed in RCX)
+;   coefficients: pointer to coefficients float array (passed in RDX)
+;   inputLength: length of input array (passed in R8)
+;   coefficientsLength: length of coefficients array (passed in R9)
 
-section .text
-global ProcessFIRFilter
-global FreeMemory
-
-; float* ProcessFIRFilter(float* input, float* coefficients, int inputLength, int coefficientsLength)
-ProcessFIRFilter:
-    ; Prologue
-    push rbp
-    mov rbp, rsp
-    sub rsp, 32
+ProcessFIRFilter proc
     
-    ; Move parameters into registers
-    mov rcx, [rbp+16]  ; input
-    mov rdx, [rbp+24]  ; coefficients
-    mov r8d, [rbp+32]  ; inputLength
-    mov r9d, [rbp+40]  ; coefficientsLength
-
-    ; Allocate memory for output
-    mov eax, r8d
-    imul eax, 4
-    call malloc
-    mov rsi, rax  ; output
-
-    ; Initialize loop counter
-    xor rdi, rdi  ; i = 0
-
-.loop_start:
-    ; Check if i >= inputLength
-    cmp rdi, r8d
-    jge .loop_end
-
-    ; output[i] = input[i]
-    movss xmm0, [rcx + rdi*4]
-    movss [rsi + rdi*4], xmm0
-
-    ; Increment loop counter
-    inc rdi
-    jmp .loop_start
-
-.loop_end:
-    ; Epilogue
-    leave
     ret
 
-; void FreeMemory(float* ptr)
-FreeMemory:
-    ; Prologue
-    push rbp
-    mov rbp, rsp
-    
-    ; Move parameter into register
-    mov rcx, [rbp+16]  ; ptr
-    
-    ; Free memory
-    call free
+ProcessFIRFilter endp
 
-    ; Epilogue
-    leave
-    ret
+
+end

@@ -1,14 +1,23 @@
 ﻿using System.Runtime.InteropServices;
 
-public static class NativeMethods
+public delegate void ProcessFIRDelegate(float[] input, float[] coefficients, int inputLength, int coefficientsLength);
+public static class NativeMethodsC
 {
 
     // C
 
-    [DllImport("../x64/Debug/JAAsm.dll", CallingConvention = CallingConvention.Cdecl)]
-    public static extern IntPtr ProcessFIRFilter(float[] input, float[] coefficients, int inputLength, int coefficientsLength);
+    [DllImport("../x64/Debug/JAC.dll", CallingConvention = CallingConvention.Cdecl)]
+    public static extern void ProcessFIRFilter(float[] input, float[] coefficients, int inputLength, int coefficientsLength);
+
+
+}
+
+public static class NativeMethodsAsm
+{
+
+    // Asm
 
     [DllImport("../x64/Debug/JAAsm.dll", CallingConvention = CallingConvention.Cdecl)]
-    public static extern void FreeMemory(IntPtr ptr);
+    public static extern void ProcessFIRFilter(float[] input, float[] coefficients, int inputLength, int coefficientsLength);
 
 }
