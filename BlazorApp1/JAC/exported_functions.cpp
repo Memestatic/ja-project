@@ -1,14 +1,11 @@
 #include "pch.h"
-#include <stdlib.h>  // Include for malloc and free
 
-extern "C" __declspec(dllexport) void ProcessFIRFilter(float* input, float* coefficients, int inputLength, int coefficientsLength) {
-    for (int i = inputLength - 1; i >= 0; i--) {
-        float temp = 0.f;
-        for (int j = 0; j < coefficientsLength; j++) {
-            if (i - j >= 0) {
-                temp += input[i - j] * coefficients[j];
+extern "C" __declspec(dllexport) void ProcessFIRFilter(float* input, float* output, float* coefficients, int inputLength, int coefficientsLength) {
+    for (int n = 0; n < inputLength; ++n) {
+        for (int k = 0; k < coefficientsLength; ++k) {
+            if (n - k >= 0) {
+                output[n] += coefficients[k] * input[n - k];
             }
         }
-        input[i] = temp;  // Modify input directly
     }
 }

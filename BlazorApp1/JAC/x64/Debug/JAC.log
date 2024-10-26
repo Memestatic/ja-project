@@ -1,6 +1,6 @@
 ﻿  pch.cpp
   dllmain.cpp
   exported_functions.cpp
-  Generowanie kodu...
-     Trwa tworzenie biblioteki C:\Github repos\ja-project\BlazorApp1\x64\Debug\JAC.lib i obiektu C:\Github repos\ja-project\BlazorApp1\x64\Debug\JAC.exp
-  JAC.vcxproj -> C:\Github repos\ja-project\BlazorApp1\x64\Debug\JAC.dll
+  Generating Code...
+     Creating library D:\Github repos\ja-project\BlazorApp1\x64\Debug\JAC.lib and object D:\Github repos\ja-project\BlazorApp1\x64\Debug\JAC.exp
+  JAC.vcxproj -> D:\Github repos\ja-project\BlazorApp1\x64\Debug\JAC.dll
