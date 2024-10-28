@@ -119,8 +119,8 @@
             // Split the data into chunks
             for (int i = 0; i < threadCount; i++)                       //dla kazdego watku tworze tablice z danymi
             {
-                long start = i * (totalSamples / threadCount);          //początek danych dla danego wątku
-                long end = (i + 1) * (totalSamples / threadCount);      //koniec danych dla danego wątku
+                long start = i * (totalSamples / threadCount) + Math.Min(i, totalSamples % threadCount);
+                long end = start + (totalSamples / threadCount) + (i < totalSamples % threadCount ? 1 : 0);
 
                 float[] chunk = new float[end - start];                 //tworze tablice dla danego wątku
                 Array.Copy(floatData, start, chunk, 0, end - start);     //kopiuje dane z tablicy floatData do tablicy chunk
