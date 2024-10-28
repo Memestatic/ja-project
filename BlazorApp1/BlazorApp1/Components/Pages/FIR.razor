@@ -131,9 +131,9 @@
 
             // Clear all output chunks to be 0.0f
             for (int i = 0; i < threadCount; i++)
-			{
-				Array.Clear(outputChunks[i], 0, outputChunks[i].Length);
-			}
+            {
+                Array.Clear(outputChunks[i], 0, outputChunks[i].Length);
+            }
 
             // Ensure that the DLL method has been selected
             if (ProcessFIR == null)                                     //tu sie upewniam ze dlla jest wybrana w gui
@@ -148,7 +148,7 @@
             Parallel.For(0, threadCount, i =>                           //tworze n równoległych wątków gdzie n to threadCount - ustalona wartosc poprzez GUI
             {
                 ProcessFIR(chunks[i], outputChunks[i], coefficients, outputChunks[i].Length, coefficients.Length);     //wywoluje procedure z porcją danych
-                
+
             });
 
             stopwatch.Stop();                                           //koncze mierzyc czas
@@ -175,5 +175,4 @@
     {
         this.coefficients = Coeffs.ComputeCoefficients(44100, 500, 61);
     }
-  
 }
