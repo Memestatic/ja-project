@@ -107,15 +107,14 @@
         try
         {
             Stopwatch stopwatch = new();
+            setCoefficents();
+
 
             float[] floatData = await wavFileProcessor.ConvertWavToFloatArray(selectedFile); //przekonwertowane dane wejściowe na tablice floatow
             long totalSamples = floatData.Length;                           //wielkośc tych danych
             float[][] chunks = new float[totalSamples / threadCount][];     //mając wielkość danych i liczbę wątkow tworzę miejsce na 
             float[][] outputChunks = new float[totalSamples / threadCount][];//dane dla każdego wątku - przygotowuje tablice 2-wymiarowa
                                                                              //gdzie 1 wymiar to ilość wątków a 2 wymiar to dane dla każdego wątku
-
-            setCoefficents();
-
             // Split the data into chunks
             for (int i = 0; i < threadCount; i++)                       //dla kazdego watku tworze tablice z danymi
             {
@@ -141,7 +140,7 @@
                 Console.WriteLine("DLL method not selected.");
                 SelectDllMethod("C");
             }
-
+            
             stopwatch.Start();                                          //zaczynam mierzyc czas
 
             // Use Parallel.For to process FIR filtering in parallel

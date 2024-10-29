@@ -21,14 +21,15 @@
 {
     foreach(var chunk in output)
     {
-        <span>@i array contains: </span>
-        @foreach (var number in chunk)
-        {
-            <span>@number, </span>
-        }
-        <span>// @chunk.Length elements. </span>
-
-        i++;
+        <p>
+            <span>@i array contains: </span>
+            @foreach (var number in chunk)
+            {
+                <span>@number, </span>
+            }
+            <span>// @chunk.Length elements. </span>
+        </p>
+            i++;
     }
 }
 
