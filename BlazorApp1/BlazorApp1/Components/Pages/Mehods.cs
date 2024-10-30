@@ -1,10 +1,19 @@
 ﻿using Microsoft.AspNetCore.Components.Forms;
 using System;
+using System.ComponentModel.DataAnnotations;
 using System.IO;
 using System.Threading.Tasks;
 
 namespace BlazorApp1.Components.Pages
 {
+    public class FilterParameters
+    {
+        [Range(0, 20000, ErrorMessage = "Frequency must be between 1 and 20000.")]
+        public int Frequency { get; set; }
+
+        [Range(1, 100, ErrorMessage = "Filter length must be between 1 and 100.")]
+        public int FilterLength { get; set; }
+    }
     public class WavFileProcessor
     {
         public int SampleRate { get; private set; }

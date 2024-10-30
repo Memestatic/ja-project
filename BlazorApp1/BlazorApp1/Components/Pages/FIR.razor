@@ -1,6 +1,7 @@
 ﻿@page "/fir"
 @using System.Diagnostics
 @using System.Runtime.InteropServices
+@using System.ComponentModel.DataAnnotations;
 @rendermode InteractiveServer
 
 <PageTitle>FIR</PageTitle>
@@ -14,9 +15,12 @@
         <h5>Select the number of threads:</h5>
         <div class="btn-group me-2 mt-2" role="group">
             <button type="button" class="btn btn-primary" @onclick="() => SetThreadCount(1)">1</button>
-            <button type="button" class="btn btn-primary" @onclick="() => SetThreadCount(2)">2</button>
-            <button type="button" class="btn btn-primary" @onclick="() => SetThreadCount(4)">4</button>
-            <button type="button" class="btn btn-primary" @onclick="() => SetThreadCount(maxThreads)">@maxThreads</button>
+            @if (maxThreads >= 2){<button type="button" class="btn btn-primary" @onclick="() => SetThreadCount(2)">2</button>}
+            @if (maxThreads >= 4){<button type="button" class="btn btn-primary" @onclick="() => SetThreadCount(2)">4</button>}
+            @if (maxThreads >= 8){<button type="button" class="btn btn-primary" @onclick="() => SetThreadCount(2)">8</button>}
+            @if (maxThreads >= 16){<button type="button" class="btn btn-primary" @onclick="() => SetThreadCount(2)">16</button>}
+            @if (maxThreads >= 32){<button type="button" class="btn btn-primary" @onclick="() => SetThreadCount(2)">32</button>}
+            @if (maxThreads >= 64){<button type="button" class="btn btn-primary" @onclick="() => SetThreadCount(2)">64</button>}
         </div>
     </div>
 
@@ -33,7 +37,26 @@
         </label>
     </div>
 
-    <button class="btn btn-success mt-3" @onclick="Start" disabled="@isFileNotSelected">Apply FIR Filter</button>
+    <EditForm Model="@parameters" OnValidSubmit="@Start">
+        <DataAnnotationsValidator />
+        <ValidationSummary />
+
+        <div>
+            <h5>Filter parameters:</h5>
+            <div class="input-group mb-3">
+                <span class="input-group-text">Frequency:</span>
+                <InputNumber @bind-Value="parameters.Frequency" class="form-control" />
+                <ValidationMessage For="@(() => parameters.Frequency)" />
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text">Filter length:</span>
+                <InputNumber @bind-Value="parameters.FilterLength" class="form-control" />
+                <ValidationMessage For="@(() => parameters.FilterLength)" />
+            </div>
+        </div>
+
+        <button class="btn btn-success mt-3" type="submit" disabled="@isFileNotSelected">Apply FIR Filter</button>
+    </EditForm>
 </div>
 
 @if (!string.IsNullOrEmpty(audioSrc))
@@ -60,8 +83,8 @@
     private int maxThreads = Environment.ProcessorCount; // Maximum number of threads
     private float[] coefficients; // FIR filter coefficients
     private string selectedDll = "C";
+    private FilterParameters parameters = new FilterParameters();
     private ProcessFIRDelegate ProcessFIR;
-
     private WavFileProcessor wavFileProcessor = new WavFileProcessor();
 
     private void HandleFileSelected(InputFileChangeEventArgs e)
@@ -172,6 +195,6 @@
 
     void setCoefficents()
     {
-        this.coefficients = Coeffs.ComputeCoefficients(44100, 500, 61);
+        this.coefficients = Coeffs.ComputeCoefficients(44100, parameters.Frequency, parameters.FilterLength);
     }
 }
