@@ -1,0 +1,34 @@
+# Blazor Server
+**/bin/
+**/obj/
+**/out/
+*.log
+*.vs
+.vscode/
+*.user
+*.lock.json
+*.DLL
+*.pdb
+*.cache
+*.config
+*.csproj.user
+*.dbmdl
+*.jfm
+*.publishxml
+*.scff
+*.suo
+*.user
+*.unsuccessfulbuild
+*.vspscc
+*.vssscc
+*.userprefs
+
+# Visual Studio Code
+.vscode/
+
+# Rider
+.idea/
+
+# ASP.NET
+appsettings.json
+appsettings.*.json
