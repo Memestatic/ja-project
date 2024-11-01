@@ -25,8 +25,16 @@
       "PackagePath": "staticwebassets\\sounds\\Ouch-6.wav"
     },
     {
+      "Id": "D:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\wwwroot\\sounds\\file_example_WAV_10MG.wav",
+      "PackagePath": "staticwebassets\\sounds\\file_example_WAV_10MG.wav"
+    },
+    {
       "Id": "D:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\wwwroot\\sounds\\mixkit-small-group-cheer-and-applause-518.wav",
       "PackagePath": "staticwebassets\\sounds\\mixkit-small-group-cheer-and-applause-518.wav"
+    },
+    {
+      "Id": "D:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\wwwroot\\sounds\\sample-file-2.wav",
+      "PackagePath": "staticwebassets\\sounds\\sample-file-2.wav"
     },
     {
       "Id": "D:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\wwwroot\\sounds\\sample2.WAV",

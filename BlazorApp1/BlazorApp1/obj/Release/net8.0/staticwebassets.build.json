@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "tSSrrrFmrlC+DTMjgDTNYedcK8iN9CuEZFw0JcxW6CA=",
+  "Hash": "P5eploMixg9f8ziCJ1y1H5wSmTrqBskWlC+JS9lFGcw=",
   "Source": "BlazorApp1",
   "BasePath": "_content/BlazorApp1",
   "Mode": "Default",
@@ -131,6 +131,25 @@
       "OriginalItemSpec": "wwwroot\\favicon.png"
     },
     {
+      "Identity": "D:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\wwwroot\\sounds\\file_example_WAV_10MG.wav",
+      "SourceId": "BlazorApp1",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\wwwroot\\",
+      "BasePath": "_content/BlazorApp1",
+      "RelativePath": "sounds/file_example_WAV_10MG.wav",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\sounds\\file_example_WAV_10MG.wav"
+    },
+    {
       "Identity": "D:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\wwwroot\\sounds\\mixkit-small-group-cheer-and-applause-518.wav",
       "SourceId": "BlazorApp1",
       "SourceType": "Discovered",
@@ -186,6 +205,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\sounds\\sample2.WAV"
+    },
+    {
+      "Identity": "D:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\wwwroot\\sounds\\sample-file-2.wav",
+      "SourceId": "BlazorApp1",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\wwwroot\\",
+      "BasePath": "_content/BlazorApp1",
+      "RelativePath": "sounds/sample-file-2.wav",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\sounds\\sample-file-2.wav"
     }
   ]
 }

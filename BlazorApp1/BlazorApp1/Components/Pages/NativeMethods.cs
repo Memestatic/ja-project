@@ -7,7 +7,7 @@ namespace BlazorApp1.Components.Pages {
 
         // C
 
-        [DllImport("../x64/Debug/JAC.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("../x64/Release/JAC.dll", CallingConvention = CallingConvention.Cdecl)]
         public static extern void ProcessFIRFilter(float[] input, float[] output, float[] coefficients, int inputLength, int coefficientsLength);
 
 
@@ -18,10 +18,10 @@ namespace BlazorApp1.Components.Pages {
 
         // Asm
 
-        [DllImport("../x64/Debug/JAAsm.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("../x64/Release/JAAsm.dll", CallingConvention = CallingConvention.Cdecl)]
         public static extern void ProcessFIRFilter(float[] input, float[] output, float[] coefficients, int inputLength, int coefficientsLength);
 
-        [DllImport("../x64/Debug/JAAsm.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("../x64/Release/JAAsm.dll", CallingConvention = CallingConvention.Cdecl)]
         public static extern void ModifyFloatArray(float[] numbers, int length);
     }
 }

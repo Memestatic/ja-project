@@ -23,7 +23,7 @@ namespace BlazorApp1.Components.Pages
         public async Task<float[]> ConvertWavToFloatArray(IBrowserFile browserFile)
         {
             const int bufferSize = 4096; // Fixed buffer size
-            using var stream = browserFile.OpenReadStream(10 * 1024 * 1024); // 10 MB
+            using var stream = browserFile.OpenReadStream(30 * 1024 * 1024); // 30 MB
             using var memoryStream = new MemoryStream();
 
             byte[] buffer = new byte[bufferSize];
