@@ -32,3 +32,11 @@
 # ASP.NET
 appsettings.json
 appsettings.*.json
+
+# Ignore DLLs in specified directories
+BlazorApp1/x64/Debug/*.dll
+BlazorApp1/x64/Release/*.dll
+
+# Ignore the normal project folders
+BlazorApp1/BlazorApp1/bin/
+BlazorApp1/BlazorApp1/obj/
