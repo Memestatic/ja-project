@@ -90,8 +90,4 @@ ModifyFloatArray proc
         ret
 ModifyFloatArray endp
 
-
-
-
-
 end
