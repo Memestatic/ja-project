@@ -17,11 +17,11 @@
         <div class="btn-group me-2 mt-2" role="group">
             <button type="button" class="btn btn-primary" @onclick="() => SetThreadCount(1)">1</button>
             @if (maxThreads >= 2){<button type="button" class="btn btn-primary" @onclick="() => SetThreadCount(2)">2</button>}
-            @if (maxThreads >= 4){<button type="button" class="btn btn-primary" @onclick="() => SetThreadCount(2)">4</button>}
-            @if (maxThreads >= 8){<button type="button" class="btn btn-primary" @onclick="() => SetThreadCount(2)">8</button>}
-            @if (maxThreads >= 16){<button type="button" class="btn btn-primary" @onclick="() => SetThreadCount(2)">16</button>}
-            @if (maxThreads >= 32){<button type="button" class="btn btn-primary" @onclick="() => SetThreadCount(2)">32</button>}
-            @if (maxThreads >= 64){<button type="button" class="btn btn-primary" @onclick="() => SetThreadCount(2)">64</button>}
+            @if (maxThreads >= 4){<button type="button" class="btn btn-primary" @onclick="() => SetThreadCount(4)">4</button>}
+            @if (maxThreads >= 8){<button type="button" class="btn btn-primary" @onclick="() => SetThreadCount(8)">8</button>}
+            @if (maxThreads >= 16){<button type="button" class="btn btn-primary" @onclick="() => SetThreadCount(16)">16</button>}
+            @if (maxThreads >= 32){<button type="button" class="btn btn-primary" @onclick="() => SetThreadCount(32)">32</button>}
+            @if (maxThreads >= 64){<button type="button" class="btn btn-primary" @onclick="() => SetThreadCount(64)">64</button>}
         </div>
     </div>
 
