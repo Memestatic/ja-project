@@ -40,24 +40,31 @@ InnerLoop:
     jl SkipCoefficient             ; If so, skip to the next coefficient
 
     ; Load the float at input[r11 - r12] into xmm1
-    movss xmm1, DWORD PTR [rcx + rax]
+    ;movss xmm1, DWORD PTR [rcx + rax]
+    movups xmm1, XMMWORD PTR [rcx + rax] ; load 4 input samples
+
 
     ; Load coefficient[r12] into xmm2 (coefficients array pointer is in r8)
-    movss xmm2, DWORD PTR [r8 + r12 * 4]  ; Load coefficient[r12] into xmm2
+    ;movss xmm2, DWORD PTR [r8 + r12 * 4]  ; Load coefficient[r12] into xmm2
+    movups xmm2, XMMWORD PTR [r8 + r12 * 4] ; load 4 coefficients
 
     ; Multiply input sample by coefficient and accumulate result
-    mulss xmm1, xmm2              ; xmm1 = input * coefficient
-    addss xmm0, xmm1              ; xmm0 += xmm1
+    ;mulss xmm1, xmm2              ; xmm1 = input * coefficient
+    ;addss xmm0, xmm1              ; xmm0 += xmm1
+    mulps xmm1, xmm2			  ; xmm1 = input * coefficient
+    addps xmm0, xmm1			  ; xmm0 += xmm1
 
 SkipCoefficient:
-    inc r12                       ; Increment coefficients index
+    ;inc r12                       ; Increment coefficients index
+    add r12, 4                     ; Move to the next 4 coefficient
     jmp InnerLoop                 ; Repeat for next coefficient
 
 StoreResult:
     ; Store the accumulated result in the output array
-    movss DWORD PTR [rdx + r11 * 4], xmm0
+    ;movss DWORD PTR [rdx + r11 * 4], xmm0
+    movups XMMWORD PTR [rdx + r11 * 4], xmm0
 
-    inc r11                       ; Move to the next output position
+    add r11, 4                       ; Move to the next output position
     jmp OuterLoop                 ; Repeat for the next input sample
 
 LoopEnd:
