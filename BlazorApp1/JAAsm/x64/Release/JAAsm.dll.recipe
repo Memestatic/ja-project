@@ -2,7 +2,7 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
-      <FullPath>C:\Users\kziaj\Desktop\jatest\ja-project\BlazorApp1\x64\Release\JAAsm.dll</FullPath>
+      <FullPath>D:\Github repos\ja-project\BlazorApp1\x64\Release\JAAsm.dll</FullPath>
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles />

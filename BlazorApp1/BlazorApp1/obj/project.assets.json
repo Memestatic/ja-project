@@ -14,11 +14,19 @@
   "project": {
     "version": "1.0.0",
     "restore": {
+<<<<<<< Updated upstream
       "projectUniqueName": "C:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\BlazorApp1.csproj",
       "projectName": "BlazorApp1",
       "projectPath": "C:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\BlazorApp1.csproj",
       "packagesPath": "C:\\Users\\Karol\\.nuget\\packages\\",
       "outputPath": "C:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\obj\\",
+=======
+      "projectUniqueName": "D:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\BlazorApp1.csproj",
+      "projectName": "BlazorApp1",
+      "projectPath": "D:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\BlazorApp1.csproj",
+      "packagesPath": "C:\\Users\\kziaj\\.nuget\\packages\\",
+      "outputPath": "D:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\obj\\",
+>>>>>>> Stashed changes
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

@@ -1,8 +1,14 @@
 {
   "version": 2,
+<<<<<<< Updated upstream
   "dgSpecHash": "wYKpqCqcjmA=",
   "success": true,
   "projectFilePath": "C:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\BlazorApp1.csproj",
+=======
+  "dgSpecHash": "yDjKo8k/m28=",
+  "success": true,
+  "projectFilePath": "D:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\BlazorApp1.csproj",
+>>>>>>> Stashed changes
   "expectedPackageFiles": [],
   "logs": []
 }

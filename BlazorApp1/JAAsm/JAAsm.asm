@@ -97,4 +97,54 @@ ModifyFloatArray proc
         ret
 ModifyFloatArray endp
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+GrayscaleFilter PROC
+    ; Arguments:
+    ; rcx = wskaünik pixelBuffer
+    ; rdx = width
+    ; r8 = bytesPerPixel
+    ; r9 = stride
+    ; [rsp + 40] startRow
+    ; [rsp + 48] endRow
+
+    mov r10, QWORD PTR [rsp + 40]
+    mov r11, QWORD PTR [rsp + 48]
+
+RowLoop:
+    cmp r10, r11
+    jge EndProc
+
+    ; Poczπtek bieøπcego wiersza
+    mov rax, r10
+    imul rax, r9
+    add rax, rcx
+
+    ; PÍtla po pikselach w wierszu
+    xor r12, r12						; Zerowanie licznika pikseli
+
+PixelLoop:
+    cmp r9, rdx
+    jge NextRow
+
+    ; Ustaw piksel na kolor czerwony
+    mov BYTE PTR [rax], 0               ; Ustaw B
+    mov BYTE PTR [rax+1], 0             ; Ustaw G
+    mov BYTE PTR [rax+2], 255           ; Ustaw R
+
+    ; Przejdü do kolejnego piksela
+    add rax, r8                        ; Przejdü do nastÍpnego piksela
+    inc r9
+    jmp PixelLoop
+
+NextRow:
+    inc r10
+    jmp RowLoop
+
+EndProc:
+    ret
+GrayscaleFilter ENDP
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 end
