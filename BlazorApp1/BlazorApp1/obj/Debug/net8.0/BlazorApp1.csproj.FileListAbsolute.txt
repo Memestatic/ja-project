@@ -58,3 +58,7 @@ D:\Github repos\ja-project\BlazorApp1\BlazorApp1\obj\Debug\net8.0\refint\BlazorA
 D:\Github repos\ja-project\BlazorApp1\BlazorApp1\obj\Debug\net8.0\BlazorApp1.pdb
 D:\Github repos\ja-project\BlazorApp1\BlazorApp1\obj\Debug\net8.0\BlazorApp1.genruntimeconfig.cache
 D:\Github repos\ja-project\BlazorApp1\BlazorApp1\obj\Debug\net8.0\ref\BlazorApp1.dll
+D:\Github repos\ja-project\BlazorApp1\BlazorApp1\bin\Debug\net8.0\BlazorApp1.staticwebassets.endpoints.json
+D:\Github repos\ja-project\BlazorApp1\BlazorApp1\obj\Debug\net8.0\staticwebassets.build.endpoints.json
+D:\Github repos\ja-project\BlazorApp1\BlazorApp1\obj\Debug\net8.0\staticwebassets\msbuild.BlazorApp1.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
+D:\Github repos\ja-project\BlazorApp1\BlazorApp1\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt

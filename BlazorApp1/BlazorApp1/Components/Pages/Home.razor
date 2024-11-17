@@ -15,58 +15,22 @@
 	<p>@number</p>
 }
 
-<button @onclick="Start">Multiply</button>
-
-@if (showSplit)
+@foreach (var number in numbersOutput)
 {
-    foreach(var chunk in output)
-    {
-        <p>
-            <span>@i array contains: </span>
-            @foreach (var number in chunk)
-            {
-                <span>@number, </span>
-            }
-            <span>// @chunk.Length elements. </span>
-        </p>
-            i++;
-    }
-}
+    <p>@number</p>
+} 
 
+<button @onclick="Start">FIR</button>
 
-<button @onclick="() => SplitData(ref numbersSplit, ref output, 4)">Split Data</button>
 
 @code{
-    private float[] numbers = { 1.0f, 2.0f, 3.5f };
+    public float[] numbers = { 1.0f, 2.0f};
+    public float[] numbersOutput = { 0.0f, 0.0f};
+    public float[] coeffs = { 1.0f, 2.0f, 3.5f, -7.0f, 1.0f, 2.0f, -3.5f, 1.0f, -2.0f, -8.0f, -13.0f};
 
     private async Task Start()
     {
-        NativeMethodsAsm.ModifyFloatArray(numbers, numbers.Length);
-        StateHasChanged();
-    }
-
-    private int i = 1;
-    bool showSplit = false;
-    private float[] numbersSplit = { 1.0f, 2.0f, 3.0f, 4.0f, 5.0f, 6.0f, 7.0f, 8.0f, 9.0f, 10.0f, 11.0f, 12.0f, 13.0f, 14.0f};
-    private float[][] output = new float[4][];
-
-    void SplitData(ref float[] floatData, ref float[][] output, int threads)
-    {
-        long totalSamples = floatData.Length;
-
-        for (int i = 0; i < threads; i++)
-        {
-            long start = i * (totalSamples / threads) + Math.Min(i, totalSamples % threads);
-            long end = start + (totalSamples / threads) + (i < totalSamples % threads ? 1 : 0);
-
-            float[] chunk = new float[end - start];
-            Array.Copy(floatData, start, chunk, 0, end - start);
-
-            output[i] = chunk;
-        }
-
-        showSplit = true;
-
+        NativeMethodsAsm.ProcessFIRFilter(numbers, numbersOutput, coeffs, numbersOutput.Length, coeffs.Length);
         StateHasChanged();
     }
 }

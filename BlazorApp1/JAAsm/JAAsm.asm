@@ -1,150 +1,181 @@
 .data
 
-    one_float DWORD 1.0f
-
 .code
 
 ProcessFIRFilter proc
+    push rbp              ; Zapisz poprzedniπ wartoúÊ RBP
+    mov rbp, rsp          ; Przypisz RSP do RBP
+    jmp _start			; Przejdü do poczπtku programu
+
+_start:
     ; Arguments:
     ; rcx = input array pointer
     ; rdx = output array pointer
     ; r8 = coefficients array pointer
-    ; r9 = inputLength
+    ; r9 = outputLength
     ; [rsp + 40] = coefficientsLength (fifth argument on the stack)
 
     ; Move coefficientsLength from the stack into r10
-    mov r10, QWORD PTR [rsp + 40]  ; r10 = coefficientsLength
+    mov r10, QWORD PTR [rsp + 32]  ; r10 = coefficientsLength
 
-    xor r11, r11                  ; Initialize output index to 0
+    ; ZewnÍtrzna pÍtla
+    mov r11, 0                      ; r11 is the index for the output array
+loop_n:
+    cmp r11, r9                     ; Compare current index with outputLength
+    jge end_loop_n                         ; If index >= outputLength, end the loop
 
-OuterLoop:
-    cmp r11, r9                   ; Check if we reached the end of input array
-    jge LoopEnd                   ; Exit loop if index >= input length
+    ; Za≥aduj zero do rejestru YMM
+    vxorps ymm0, ymm0, ymm0         ; Clear ymm0 to store the sum
+    vxorps ymm1, ymm1, ymm1
+    vxorps ymm2, ymm2, ymm2
+    vxorps ymm3, ymm3, ymm3
+    vxorps ymm4, ymm4, ymm4
+    vxorps ymm5, ymm5, ymm5
+    vxorps ymm6, ymm6, ymm6
+    vxorps ymm7, ymm7, ymm7
 
-    xorps xmm0, xmm0              ; Clear xmm0 to accumulate result for output sample
+    ; WewnÍtrzna pÍtla
+    mov r12, 0                      ; r12 is the index for the coefficients array
 
-    ; Inner loop to apply all coefficients to the window
-    xor r12, r12                  ; Initialize coefficients index (inner loop index)
+loop_k:
+    cmp r12, r10                    ; Compare current index with coefficientsLength
+    jge end_loop_k             ; If index >= coefficientsLength, end the inner loop
 
-InnerLoop:
-    cmp r12, r10                  ; Compare coefficients index with length
-    jge StoreResult               ; Break out of inner loop if weíve applied all coefficients
+    mov r13, r11
+    sub r13, r12
+    shl r13, 2                      ; Multiply by 4 to get the correct index
+    cmp r13, 0
+    jl end_loop_k                   ; If r13 < 0, skip this iteration
 
-    ; Calculate the address of input[r11 - r12]
-    mov rax, r11                  ; Move r11 to rax
-    sub rax, r12                  ; rax = r11 - r12 (to access past samples)
-    shl rax, 2                    ; Multiply by 4 (shift left by 2) to get byte offset
+    jmp copy_loop
 
-    ; Check for out-of-bounds access
-    cmp rax, 0                    ; Check if rax is less than 0
-    jl SkipCoefficient             ; If so, skip to the next coefficient
+copy_loop:
+    ; Initialize indices for loading into xmm0 and xmm1
+    xor r14, r14                    ; r14 is the index for xmm0
+    xor r15, r15                    ; r15 is the index for xmm1
 
-    ; Load the float at input[r11 - r12] into xmm1
-    ;movss xmm1, DWORD PTR [rcx + rax]
-    movups xmm1, XMMWORD PTR [rcx + rax] ; load 4 input samples
+    ; Za≥aduj zero do rejestru YMM
+    vxorps ymm0, ymm0, ymm0         ; Clear ymm0 to store the sum
+    vxorps ymm1, ymm1, ymm1
+    vxorps ymm2, ymm2, ymm2
+    vxorps ymm3, ymm3, ymm3
+    ;vxorps ymm4, ymm4, ymm4
+    vxorps ymm5, ymm5, ymm5
+    vxorps ymm6, ymm6, ymm6
+    vxorps ymm7, ymm7, ymm7
 
+    jmp load_xmm0
 
-    ; Load coefficient[r12] into xmm2 (coefficients array pointer is in r8)
-    ;movss xmm2, DWORD PTR [r8 + r12 * 4]  ; Load coefficient[r12] into xmm2
-    movups xmm2, XMMWORD PTR [r8 + r12 * 4] ; load 4 coefficients
+load_xmm0:
+    cmp r14, 4                      ; Check if xmm0 is full (4 values)
+    jge xmm0_is_full                   ; If full, start loading xmm1
 
-    ; Multiply input sample by coefficient and accumulate result
-    ;mulss xmm1, xmm2              ; xmm1 = input * coefficient
-    ;addss xmm0, xmm1              ; xmm0 += xmm1
-    mulps xmm1, xmm2			  ; xmm1 = input * coefficient
-    addps xmm0, xmm1			  ; xmm0 += xmm1
+    ; Check if n - k >= 0
+    mov r13, r11
+    sub r13, r12
+    shl r13, 2
+    cmp r13, 0                   
+    jl load_xmm1                         
 
-SkipCoefficient:
-    ;inc r12                       ; Increment coefficients index
-    add r12, 4                     ; Move to the next 4 coefficient
-    jmp InnerLoop                 ; Repeat for next coefficient
+    ; Load value into xmm0
+    vpinsrd xmm0, xmm0, DWORD PTR [rcx + r13], 0
 
-StoreResult:
-    ; Store the accumulated result in the output array
-    ;movss DWORD PTR [rdx + r11 * 4], xmm0
-    movups XMMWORD PTR [rdx + r11 * 4], xmm0
+    ; Shift values in xmm0 to the right by 1 place
+    vpermilps xmm0, xmm0, 57
 
-    add r11, 4                       ; Move to the next output position
-    jmp OuterLoop                 ; Repeat for the next input sample
+    ; Load coefficient as well
+    vpinsrd xmm2, xmm2, DWORD PTR [r8 + r12 * 4], 0
 
-LoopEnd:
+    ; Shift values in xmm2 to the right by 1 place
+    vpermilps xmm2, xmm2, 57
+
+    inc r12                         ; Increment coefficients index
+    inc r14                         ; Increment xmm0 index
+    jmp load_xmm0                   ; Continue loading values
+
+xmm0_is_full:
+    jmp load_xmm1
+
+load_xmm1:
+    cmp r15, 4                      ; Check if xmm1 is full (4 values)
+    jge xmm1_is_full                ; If full, combine xmm0 and xmm1 into ymm0
+
+    mov r13, r11
+    sub r13, r12
+    shl r13, 2
+    cmp r13, 0
+    jl combine_ymm
+
+    ; Load value into xmm1
+    vpinsrd xmm1, xmm1, DWORD PTR [rcx + r13], 0
+
+    ; Shift values in xmm1 to the right by 1 place
+    vpermilps xmm1, xmm1, 57
+
+    ; Load coefficient as well
+    vpinsrd xmm3, xmm3, DWORD PTR [r8 + r12 * 4], 0
+
+    ; Shift values in xmm3 to the right by 1 place
+    vpermilps xmm3, xmm3, 57
+
+    inc r12						 ; Increment coefficients index
+    inc r15                         ; Increment xmm1 index
+    jmp load_xmm1                   ; Continue loading values
+
+xmm1_is_full:
+    jmp combine_ymm
+
+combine_ymm:
+    ; Combine xmm0 and xmm1 into ymm0
+    vinsertf128 ymm5, ymm5, xmm0, 0
+    vinsertf128 ymm5, ymm5, xmm1, 1
+
+    vinsertf128 ymm6, ymm6, xmm2, 0
+    vinsertf128 ymm6, ymm6, xmm3, 1
+
+    ; Continue with the rest of the algorithm
+    jmp multiply_and_add
+
+multiply_and_add:
+    ; Mnoøenie i dodawanie do rejestru YMM
+    vfmadd231ps ymm4, ymm5, ymm6    ; Multiply and add to ymm4
+    jmp loop_k					  ; Continue inner loop
+
+end_loop_k:
+    ; Zapisz wynik do output
+    ; Assuming ymm0 contains the 8 single-precision floating-point values
+
+    ; First horizontal add: sum pairs of adjacent values
+    ;vhaddps ymm4, ymm4, ymm4  ; ymm4 = (a0 + a1, a2 + a3, a4 + a5, a6 + a7, a0 + a1, a2 + a3, a4 + a5, a6 + a7)
+
+    ; Second horizontal add: sum pairs of adjacent values again
+    ;vhaddps ymm4, ymm4, ymm4  ; ymm4 = (a0 + a1 + a2 + a3, a4 + a5 + a6 + a7, a0 + a1 + a2 + a3, a4 + a5 + a6 + a7, ...)
+
+    ; Third horizontal add: sum the two remaining values
+    ;vhaddps ymm4, ymm4, ymm4  ; ymm4 = (a0 + a1 + a2 + a3 + a4 + a5 + a6 + a7, ..., ..., ...)
+
+    ; The result is now in the lower 32 bits of ymm0
+
+    vxorps xmm0, xmm0, xmm0
+
+    vextractf128 xmm0, ymm4, 1    ; Extract the upper part of ymm0
+    vaddps xmm4, xmm4, xmm0        ; Add the upper part to the lower part
+
+    vhaddps xmm4, xmm4, xmm4
+    vhaddps xmm4, xmm4, xmm4
+
+    vmovss DWORD PTR [rdx + r11*4], xmm4  ; Store the result from the lower part of ymm0
+
+    ; Increment output index and continue main loop
+    inc r11
+    jmp loop_n
+
+end_loop_n:
+    ; ZakoÒcz program
+    mov rsp, rbp          ; PrzywrÛÊ RSP
+    pop rbp               ; PrzywrÛÊ poprzednie RBP
     ret
 
 ProcessFIRFilter endp
 
-
-
-
-ModifyFloatArray proc
-        ; rcx contains the address of the float array
-        ; rdx contains the length of the array (number of elements)
-
-        xor r8, r8               ; Initialize index (r8 = 0)
-
-    LoopStart:
-        cmp r8, rdx              ; Compare index with array length
-        jge LoopEnd              ; If index >= length, exit loop
-
-        ; Load the float at array[r8] into xmm0
-        movss xmm0, DWORD PTR [rcx + r8 * 4]   ; Each float is 4 bytes
-        addss xmm0, xmm0                        ; Multiply by 2 (xmm0 = xmm0 * 2)
-        movss DWORD PTR [rcx + r8 * 4], xmm0   ; Store the result back
-
-        inc r8                 ; Increment index
-        jmp LoopStart          ; Repeat for the next element
-
-    LoopEnd:
-        ret
-ModifyFloatArray endp
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-GrayscaleFilter PROC
-    ; Arguments:
-    ; rcx = wskaünik pixelBuffer
-    ; rdx = width
-    ; r8 = bytesPerPixel
-    ; r9 = stride
-    ; [rsp + 40] startRow
-    ; [rsp + 48] endRow
-
-    mov r10, QWORD PTR [rsp + 40]
-    mov r11, QWORD PTR [rsp + 48]
-
-RowLoop:
-    cmp r10, r11
-    jge EndProc
-
-    ; Poczπtek bieøπcego wiersza
-    mov rax, r10
-    imul rax, r9
-    add rax, rcx
-
-    ; PÍtla po pikselach w wierszu
-    xor r12, r12						; Zerowanie licznika pikseli
-
-PixelLoop:
-    cmp r9, rdx
-    jge NextRow
-
-    ; Ustaw piksel na kolor czerwony
-    mov BYTE PTR [rax], 0               ; Ustaw B
-    mov BYTE PTR [rax+1], 0             ; Ustaw G
-    mov BYTE PTR [rax+2], 255           ; Ustaw R
-
-    ; Przejdü do kolejnego piksela
-    add rax, r8                        ; Przejdü do nastÍpnego piksela
-    inc r9
-    jmp PixelLoop
-
-NextRow:
-    inc r10
-    jmp RowLoop
-
-EndProc:
-    ret
-GrayscaleFilter ENDP
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-end
+END

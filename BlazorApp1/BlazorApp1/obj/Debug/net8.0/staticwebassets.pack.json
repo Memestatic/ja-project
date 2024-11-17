@@ -2,7 +2,7 @@
   "Files": [
     {
       "Id": "D:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\BlazorApp1.bundle.scp.css",
-      "PackagePath": "staticwebassets\\BlazorApp1.bundle.scp.css"
+      "PackagePath": "staticwebassets\\BlazorApp1.6qc5cd9f0a.bundle.scp.css"
     },
     {
       "Id": "D:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\wwwroot\\app.css",
@@ -25,12 +25,24 @@
       "PackagePath": "staticwebassets\\sounds\\Ouch-6.wav"
     },
     {
+      "Id": "D:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\wwwroot\\sounds\\file_example_WAV_10MG.wav",
+      "PackagePath": "staticwebassets\\sounds\\file_example_WAV_10MG.wav"
+    },
+    {
       "Id": "D:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\wwwroot\\sounds\\mixkit-small-group-cheer-and-applause-518.wav",
       "PackagePath": "staticwebassets\\sounds\\mixkit-small-group-cheer-and-applause-518.wav"
     },
     {
+      "Id": "D:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\wwwroot\\sounds\\sample-file-2.wav",
+      "PackagePath": "staticwebassets\\sounds\\sample-file-2.wav"
+    },
+    {
       "Id": "D:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\wwwroot\\sounds\\sample2.WAV",
       "PackagePath": "staticwebassets\\sounds\\sample2.WAV"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.BlazorApp1.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
     },
     {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.BlazorApp1.Microsoft.AspNetCore.StaticWebAssets.props",

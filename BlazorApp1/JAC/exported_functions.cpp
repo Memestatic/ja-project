@@ -6,6 +6,9 @@ extern "C" __declspec(dllexport) void ProcessFIRFilter(float* input, float* outp
             if (n - k >= 0) {
                 output[n] += coefficients[k] * input[n - k];
             }
+            else {
+                break;
+            }
         }
     }
 }
