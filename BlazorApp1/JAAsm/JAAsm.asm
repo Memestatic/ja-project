@@ -13,10 +13,10 @@ _start:
     ; rdx = output array pointer
     ; r8 = coefficients array pointer
     ; r9 = outputLength
-    ; [rsp + 40] = coefficientsLength (fifth argument on the stack)
+    ;
 
     ; Move coefficientsLength from the stack into r10
-    mov r10, QWORD PTR [rsp + 32]  ; r10 = coefficientsLength
+    mov r10, [rsp + 48]  ; r10 = coefficientsLength
 
     ; Zewnêtrzna pêtla
     mov r11, 0                      ; r11 is the index for the output array
@@ -68,7 +68,10 @@ copy_loop:
 
 load_xmm0:
     cmp r14, 4                      ; Check if xmm0 is full (4 values)
-    jge xmm0_is_full                   ; If full, start loading xmm1
+    jge load_xmm1                   ; If full, start loading xmm1
+
+    cmp r12, r10                    ; Compare current index with coefficientsLength
+    jge load_xmm1             ; If index >= coefficientsLength, end the inner loop
 
     ; Check if n - k >= 0
     mov r13, r11
@@ -93,12 +96,12 @@ load_xmm0:
     inc r14                         ; Increment xmm0 index
     jmp load_xmm0                   ; Continue loading values
 
-xmm0_is_full:
-    jmp load_xmm1
-
 load_xmm1:
     cmp r15, 4                      ; Check if xmm1 is full (4 values)
-    jge xmm1_is_full                ; If full, combine xmm0 and xmm1 into ymm0
+    jge combine_ymm                ; If full, combine xmm0 and xmm1 into ymm0
+
+    cmp r12, r10                    ; Compare current index with coefficientsLength
+    jge combine_ymm             ; If index >= coefficientsLength, end the inner loop
 
     mov r13, r11
     sub r13, r12
@@ -121,9 +124,6 @@ load_xmm1:
     inc r12						 ; Increment coefficients index
     inc r15                         ; Increment xmm1 index
     jmp load_xmm1                   ; Continue loading values
-
-xmm1_is_full:
-    jmp combine_ymm
 
 combine_ymm:
     ; Combine xmm0 and xmm1 into ymm0
