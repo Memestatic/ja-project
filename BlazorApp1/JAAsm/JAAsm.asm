@@ -3,8 +3,8 @@
 .code
 
 ProcessFIRFilter proc
-    ;push rbp              ; Zapisz poprzedni¹ wartoœæ RBP
-    ;mov rbp, rsp          ; Przypisz RSP do RBP
+    push rbp              ; Zapisz poprzedni¹ wartoœæ RBP
+    mov rbp, rsp          ; Przypisz RSP do RBP
     jmp _start			; PrzejdŸ do pocz¹tku programu
 
 _start:
@@ -16,7 +16,7 @@ _start:
     ;
 
     ; Move coefficientsLength from the stack into r10
-    mov r10, [rsp + 40]  ; r10 = coefficientsLength
+    mov r10, [rsp + 48]  ; r10 = coefficientsLength
 
     ; Zewnêtrzna pêtla
     mov r11, 0                      ; r11 is the index for the output array
@@ -51,16 +51,8 @@ loop_k:
 
 copy_loop:
     ; Initialize indices for loading into xmm0 and xmm1
-
-
-
     mov r14, 0                    ; r14 is the index for xmm0
-
-        ;jmp end_loop_n
-
     mov rdi, 0                    ; rdi is the index for xmm1
-
-
 
     ; Za³aduj zero do rejestru YMM
     vxorps ymm0, ymm0, ymm0         ; Clear ymm0 to store the sum
@@ -71,8 +63,6 @@ copy_loop:
     vxorps ymm5, ymm5, ymm5
     vxorps ymm6, ymm6, ymm6
     vxorps ymm7, ymm7, ymm7
-
-        
 
     jmp load_xmm0
 
@@ -152,19 +142,6 @@ multiply_and_add:
     jmp loop_k					  ; Continue inner loop
 
 end_loop_k:
-    ; Zapisz wynik do output
-    ; Assuming ymm0 contains the 8 single-precision floating-point values
-
-    ; First horizontal add: sum pairs of adjacent values
-    ;vhaddps ymm4, ymm4, ymm4  ; ymm4 = (a0 + a1, a2 + a3, a4 + a5, a6 + a7, a0 + a1, a2 + a3, a4 + a5, a6 + a7)
-
-    ; Second horizontal add: sum pairs of adjacent values again
-    ;vhaddps ymm4, ymm4, ymm4  ; ymm4 = (a0 + a1 + a2 + a3, a4 + a5 + a6 + a7, a0 + a1 + a2 + a3, a4 + a5 + a6 + a7, ...)
-
-    ; Third horizontal add: sum the two remaining values
-    ;vhaddps ymm4, ymm4, ymm4  ; ymm4 = (a0 + a1 + a2 + a3 + a4 + a5 + a6 + a7, ..., ..., ...)
-
-    ; The result is now in the lower 32 bits of ymm0
 
     vxorps xmm0, xmm0, xmm0
 
@@ -182,8 +159,8 @@ end_loop_k:
 
 end_loop_n:
     ; Zakoñcz program
-    ;mov rsp, rbp          ; Przywróæ RSP
-    ;pop rbp               ; Przywróæ poprzednie RBP
+    mov rsp, rbp          ; Przywróæ RSP
+    pop rbp               ; Przywróæ poprzednie RBP
     ret
 
 ProcessFIRFilter endp

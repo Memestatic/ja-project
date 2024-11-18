@@ -2,7 +2,7 @@
   "Files": [
     {
       "Id": "D:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\obj\\Release\\net8.0\\scopedcss\\projectbundle\\BlazorApp1.bundle.scp.css",
-      "PackagePath": "staticwebassets\\BlazorApp1.bundle.scp.css"
+      "PackagePath": "staticwebassets\\BlazorApp1.6qc5cd9f0a.bundle.scp.css"
     },
     {
       "Id": "D:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\wwwroot\\app.css",
@@ -39,6 +39,10 @@
     {
       "Id": "D:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\wwwroot\\sounds\\sample2.WAV",
       "PackagePath": "staticwebassets\\sounds\\sample2.WAV"
+    },
+    {
+      "Id": "obj\\Release\\net8.0\\staticwebassets\\msbuild.BlazorApp1.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
     },
     {
       "Id": "obj\\Release\\net8.0\\staticwebassets\\msbuild.BlazorApp1.Microsoft.AspNetCore.StaticWebAssets.props",
