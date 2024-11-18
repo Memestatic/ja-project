@@ -3,8 +3,8 @@
 .code
 
 ProcessFIRFilter proc
-    push rbp              ; Zapisz poprzedni¹ wartoœæ RBP
-    mov rbp, rsp          ; Przypisz RSP do RBP
+    ;push rbp              ; Zapisz poprzedni¹ wartoœæ RBP
+    ;mov rbp, rsp          ; Przypisz RSP do RBP
     jmp _start			; PrzejdŸ do pocz¹tku programu
 
 _start:
@@ -16,7 +16,7 @@ _start:
     ;
 
     ; Move coefficientsLength from the stack into r10
-    mov r10, [rsp + 48]  ; r10 = coefficientsLength
+    mov r10, [rsp + 40]  ; r10 = coefficientsLength
 
     ; Zewnêtrzna pêtla
     mov r11, 0                      ; r11 is the index for the output array
@@ -51,8 +51,16 @@ loop_k:
 
 copy_loop:
     ; Initialize indices for loading into xmm0 and xmm1
-    xor r14, r14                    ; r14 is the index for xmm0
-    xor r15, r15                    ; r15 is the index for xmm1
+
+
+
+    mov r14, 0                    ; r14 is the index for xmm0
+
+        ;jmp end_loop_n
+
+    mov rdi, 0                    ; rdi is the index for xmm1
+
+
 
     ; Za³aduj zero do rejestru YMM
     vxorps ymm0, ymm0, ymm0         ; Clear ymm0 to store the sum
@@ -63,6 +71,8 @@ copy_loop:
     vxorps ymm5, ymm5, ymm5
     vxorps ymm6, ymm6, ymm6
     vxorps ymm7, ymm7, ymm7
+
+        
 
     jmp load_xmm0
 
@@ -97,7 +107,7 @@ load_xmm0:
     jmp load_xmm0                   ; Continue loading values
 
 load_xmm1:
-    cmp r15, 4                      ; Check if xmm1 is full (4 values)
+    cmp rdi, 4                      ; Check if xmm1 is full (4 values)
     jge combine_ymm                ; If full, combine xmm0 and xmm1 into ymm0
 
     cmp r12, r10                    ; Compare current index with coefficientsLength
@@ -122,7 +132,7 @@ load_xmm1:
     vpermilps xmm3, xmm3, 57
 
     inc r12						 ; Increment coefficients index
-    inc r15                         ; Increment xmm1 index
+    inc rdi                         ; Increment xmm1 index
     jmp load_xmm1                   ; Continue loading values
 
 combine_ymm:
@@ -172,8 +182,8 @@ end_loop_k:
 
 end_loop_n:
     ; Zakoñcz program
-    mov rsp, rbp          ; Przywróæ RSP
-    pop rbp               ; Przywróæ poprzednie RBP
+    ;mov rsp, rbp          ; Przywróæ RSP
+    ;pop rbp               ; Przywróæ poprzednie RBP
     ret
 
 ProcessFIRFilter endp
