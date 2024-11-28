@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "iNtpSyPsHlpsINRWwPlvBgzoITKaYAX69PE/5dIvx7U=",
+  "Hash": "GgGyx+5bK1fWBZieB+uVFvZ+5Ll50V/u5gvSJjFwiD0=",
   "Source": "BlazorApp1",
   "BasePath": "_content/BlazorApp1",
   "Mode": "Default",
@@ -10,19 +10,19 @@
     {
       "Name": "BlazorApp1\\wwwroot",
       "Source": "BlazorApp1",
-      "ContentRoot": "C:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\wwwroot\\",
+      "ContentRoot": "D:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\wwwroot\\",
       "BasePath": "_content/BlazorApp1",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "C:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\obj\\Release\\net8.0\\scopedcss\\bundle\\BlazorApp1.styles.css",
+      "Identity": "D:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\obj\\Release\\net8.0\\scopedcss\\bundle\\BlazorApp1.styles.css",
       "SourceId": "BlazorApp1",
       "SourceType": "Computed",
-      "ContentRoot": "C:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\obj\\Release\\net8.0\\scopedcss\\bundle\\",
+      "ContentRoot": "D:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\obj\\Release\\net8.0\\scopedcss\\bundle\\",
       "BasePath": "_content/BlazorApp1",
-      "RelativePath": "BlazorApp1.styles.css",
+      "RelativePath": "BlazorApp1#[.{fingerprint}]?.styles.css",
       "AssetKind": "All",
       "AssetMode": "CurrentProject",
       "AssetRole": "Primary",
@@ -31,17 +31,19 @@
       "RelatedAsset": "",
       "AssetTraitName": "ScopedCss",
       "AssetTraitValue": "ApplicationBundle",
+      "Fingerprint": "6qc5cd9f0a",
+      "Integrity": "UgDZiskV/43II11Tslg1JGEtoTtsYcp1HX3eg2tGCwY=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\obj\\Release\\net8.0\\scopedcss\\bundle\\BlazorApp1.styles.css"
+      "OriginalItemSpec": "D:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\obj\\Release\\net8.0\\scopedcss\\bundle\\BlazorApp1.styles.css"
     },
     {
-      "Identity": "C:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\obj\\Release\\net8.0\\scopedcss\\projectbundle\\BlazorApp1.bundle.scp.css",
+      "Identity": "D:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\obj\\Release\\net8.0\\scopedcss\\projectbundle\\BlazorApp1.bundle.scp.css",
       "SourceId": "BlazorApp1",
       "SourceType": "Computed",
-      "ContentRoot": "C:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\obj\\Release\\net8.0\\scopedcss\\projectbundle\\",
+      "ContentRoot": "D:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\obj\\Release\\net8.0\\scopedcss\\projectbundle\\",
       "BasePath": "_content/BlazorApp1",
-      "RelativePath": "BlazorApp1.bundle.scp.css",
+      "RelativePath": "BlazorApp1#[.{fingerprint}]!.bundle.scp.css",
       "AssetKind": "All",
       "AssetMode": "Reference",
       "AssetRole": "Primary",
@@ -50,180 +52,1104 @@
       "RelatedAsset": "",
       "AssetTraitName": "ScopedCss",
       "AssetTraitValue": "ProjectBundle",
+      "Fingerprint": "6qc5cd9f0a",
+      "Integrity": "UgDZiskV/43II11Tslg1JGEtoTtsYcp1HX3eg2tGCwY=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\obj\\Release\\net8.0\\scopedcss\\projectbundle\\BlazorApp1.bundle.scp.css"
+      "OriginalItemSpec": "D:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\obj\\Release\\net8.0\\scopedcss\\projectbundle\\BlazorApp1.bundle.scp.css"
     },
     {
-      "Identity": "C:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\wwwroot\\app.css",
+      "Identity": "D:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\wwwroot\\app.css",
       "SourceId": "BlazorApp1",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\wwwroot\\",
+      "ContentRoot": "D:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\wwwroot\\",
       "BasePath": "_content/BlazorApp1",
-      "RelativePath": "app.css",
+      "RelativePath": "app#[.{fingerprint}]?.css",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeBehavior": "",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "da95v2qkru",
+      "Integrity": "u9qEka1auR7E3rd3/8/j8hkQdSOYj9bRJ4nYiFDR1sE=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\app.css"
     },
     {
-      "Identity": "C:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\wwwroot\\bootstrap\\bootstrap.min.css",
+      "Identity": "D:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\wwwroot\\bootstrap\\bootstrap.min.css",
       "SourceId": "BlazorApp1",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\wwwroot\\",
+      "ContentRoot": "D:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\wwwroot\\",
       "BasePath": "_content/BlazorApp1",
-      "RelativePath": "bootstrap/bootstrap.min.css",
+      "RelativePath": "bootstrap/bootstrap.min#[.{fingerprint}]?.css",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeBehavior": "",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "bpk8xqwxhs",
+      "Integrity": "z8OR40MowJ8GgK6P89Y+hiJK5+cclzFHzLhFQLL92bg=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\bootstrap\\bootstrap.min.css"
     },
     {
-      "Identity": "C:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\wwwroot\\bootstrap\\bootstrap.min.css.map",
+      "Identity": "D:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\wwwroot\\bootstrap\\bootstrap.min.css.map",
       "SourceId": "BlazorApp1",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\wwwroot\\",
+      "ContentRoot": "D:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\wwwroot\\",
       "BasePath": "_content/BlazorApp1",
-      "RelativePath": "bootstrap/bootstrap.min.css.map",
+      "RelativePath": "bootstrap/bootstrap.min.css#[.{fingerprint}]?.map",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeBehavior": "",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "8inm30yfxf",
+      "Integrity": "gBwg2tmA0Ci2u54gMF1jNCVku6vznarkLS6D76htNNQ=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\bootstrap\\bootstrap.min.css.map"
     },
     {
-      "Identity": "C:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\wwwroot\\favicon.png",
+      "Identity": "D:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\wwwroot\\favicon.png",
       "SourceId": "BlazorApp1",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\wwwroot\\",
+      "ContentRoot": "D:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\wwwroot\\",
       "BasePath": "_content/BlazorApp1",
-      "RelativePath": "favicon.png",
+      "RelativePath": "favicon#[.{fingerprint}]?.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeBehavior": "",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "ifv42okdf2",
+      "Integrity": "4mWsDy3aHl36ZbGt8zByK7Pvd4kRUoNgTYzRnwmPHwg=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.png"
     },
     {
-      "Identity": "C:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\wwwroot\\sounds\\file_example_WAV_10MG.wav",
+      "Identity": "D:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\wwwroot\\sounds\\file_example_WAV_10MG.wav",
       "SourceId": "BlazorApp1",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\wwwroot\\",
+      "ContentRoot": "D:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\wwwroot\\",
       "BasePath": "_content/BlazorApp1",
-      "RelativePath": "sounds/file_example_WAV_10MG.wav",
+      "RelativePath": "sounds/file_example_WAV_10MG#[.{fingerprint}]?.wav",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeBehavior": "",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "f9xkcknb82",
+      "Integrity": "nY4RkjIn7t/tBB4STRhwl/SK2jb9RutQrgeaR2WrgQc=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\sounds\\file_example_WAV_10MG.wav"
     },
     {
-      "Identity": "C:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\wwwroot\\sounds\\mixkit-small-group-cheer-and-applause-518.wav",
+      "Identity": "D:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\wwwroot\\sounds\\mixkit-small-group-cheer-and-applause-518.wav",
       "SourceId": "BlazorApp1",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\wwwroot\\",
+      "ContentRoot": "D:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\wwwroot\\",
       "BasePath": "_content/BlazorApp1",
-      "RelativePath": "sounds/mixkit-small-group-cheer-and-applause-518.wav",
+      "RelativePath": "sounds/mixkit-small-group-cheer-and-applause-518#[.{fingerprint}]?.wav",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeBehavior": "",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "3l7ag8jjrj",
+      "Integrity": "GZv1Pvw2PsDEQHdzA9gKG5JxOiUa9P7in6M8R516dnM=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\sounds\\mixkit-small-group-cheer-and-applause-518.wav"
     },
     {
-      "Identity": "C:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\wwwroot\\sounds\\Ouch-6.wav",
+      "Identity": "D:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\wwwroot\\sounds\\Ouch-6.wav",
       "SourceId": "BlazorApp1",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\wwwroot\\",
+      "ContentRoot": "D:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\wwwroot\\",
       "BasePath": "_content/BlazorApp1",
-      "RelativePath": "sounds/Ouch-6.wav",
+      "RelativePath": "sounds/Ouch-6#[.{fingerprint}]?.wav",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeBehavior": "",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "3qz5t4flhs",
+      "Integrity": "5b77ms8oJXyqFQY0HcTPEWPCBVd6YmMQDNa1QJdVVa8=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\sounds\\Ouch-6.wav"
     },
     {
-      "Identity": "C:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\wwwroot\\sounds\\sample2.WAV",
+      "Identity": "D:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\wwwroot\\sounds\\sample2.WAV",
       "SourceId": "BlazorApp1",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\wwwroot\\",
+      "ContentRoot": "D:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\wwwroot\\",
       "BasePath": "_content/BlazorApp1",
-      "RelativePath": "sounds/sample2.WAV",
+      "RelativePath": "sounds/sample2#[.{fingerprint}]?.WAV",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeBehavior": "",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "1hgm0ke2qb",
+      "Integrity": "G9P19yKfDs3QucN34u60xC6iWRdKAKAvQ0k+s+u78fs=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\sounds\\sample2.WAV"
     },
     {
-      "Identity": "C:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\wwwroot\\sounds\\sample-file-2.wav",
+      "Identity": "D:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\wwwroot\\sounds\\sample-file-2.wav",
       "SourceId": "BlazorApp1",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\wwwroot\\",
+      "ContentRoot": "D:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\wwwroot\\",
       "BasePath": "_content/BlazorApp1",
-      "RelativePath": "sounds/sample-file-2.wav",
+      "RelativePath": "sounds/sample-file-2#[.{fingerprint}]?.wav",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeBehavior": "",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "dyfqvnhuyn",
+      "Integrity": "RZ5bcP+5bIIVhdZKY56mk3SqgTDCAAKBDtePxUbwK94=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\sounds\\sample-file-2.wav"
+    }
+  ],
+  "Endpoints": [
+    {
+      "Route": "app.css",
+      "AssetFile": "D:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\wwwroot\\app.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2591"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"u9qEka1auR7E3rd3/8/j8hkQdSOYj9bRJ4nYiFDR1sE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 13 Oct 2024 17:54:44 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-u9qEka1auR7E3rd3/8/j8hkQdSOYj9bRJ4nYiFDR1sE="
+        }
+      ]
+    },
+    {
+      "Route": "app.da95v2qkru.css",
+      "AssetFile": "D:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\wwwroot\\app.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2591"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"u9qEka1auR7E3rd3/8/j8hkQdSOYj9bRJ4nYiFDR1sE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 13 Oct 2024 17:54:44 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "da95v2qkru"
+        },
+        {
+          "Name": "label",
+          "Value": "app.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-u9qEka1auR7E3rd3/8/j8hkQdSOYj9bRJ4nYiFDR1sE="
+        }
+      ]
+    },
+    {
+      "Route": "BlazorApp1.6qc5cd9f0a.bundle.scp.css",
+      "AssetFile": "D:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\obj\\Release\\net8.0\\scopedcss\\projectbundle\\BlazorApp1.bundle.scp.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "5895"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"UgDZiskV/43II11Tslg1JGEtoTtsYcp1HX3eg2tGCwY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 28 Nov 2024 21:13:00 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "6qc5cd9f0a"
+        },
+        {
+          "Name": "label",
+          "Value": "BlazorApp1.bundle.scp.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-UgDZiskV/43II11Tslg1JGEtoTtsYcp1HX3eg2tGCwY="
+        }
+      ]
+    },
+    {
+      "Route": "BlazorApp1.6qc5cd9f0a.styles.css",
+      "AssetFile": "D:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\obj\\Release\\net8.0\\scopedcss\\bundle\\BlazorApp1.styles.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "5895"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"UgDZiskV/43II11Tslg1JGEtoTtsYcp1HX3eg2tGCwY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 28 Nov 2024 21:13:00 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "6qc5cd9f0a"
+        },
+        {
+          "Name": "label",
+          "Value": "BlazorApp1.styles.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-UgDZiskV/43II11Tslg1JGEtoTtsYcp1HX3eg2tGCwY="
+        }
+      ]
+    },
+    {
+      "Route": "BlazorApp1.bundle.scp.css",
+      "AssetFile": "D:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\obj\\Release\\net8.0\\scopedcss\\projectbundle\\BlazorApp1.bundle.scp.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "5895"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"UgDZiskV/43II11Tslg1JGEtoTtsYcp1HX3eg2tGCwY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 28 Nov 2024 21:13:00 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-UgDZiskV/43II11Tslg1JGEtoTtsYcp1HX3eg2tGCwY="
+        }
+      ]
+    },
+    {
+      "Route": "BlazorApp1.styles.css",
+      "AssetFile": "D:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\obj\\Release\\net8.0\\scopedcss\\bundle\\BlazorApp1.styles.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "5895"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"UgDZiskV/43II11Tslg1JGEtoTtsYcp1HX3eg2tGCwY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 28 Nov 2024 21:13:00 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-UgDZiskV/43II11Tslg1JGEtoTtsYcp1HX3eg2tGCwY="
+        }
+      ]
+    },
+    {
+      "Route": "bootstrap/bootstrap.min.bpk8xqwxhs.css",
+      "AssetFile": "D:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\wwwroot\\bootstrap\\bootstrap.min.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "162720"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"z8OR40MowJ8GgK6P89Y+hiJK5+cclzFHzLhFQLL92bg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 03 Oct 2024 13:23:45 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "bpk8xqwxhs"
+        },
+        {
+          "Name": "label",
+          "Value": "bootstrap/bootstrap.min.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-z8OR40MowJ8GgK6P89Y+hiJK5+cclzFHzLhFQLL92bg="
+        }
+      ]
+    },
+    {
+      "Route": "bootstrap/bootstrap.min.css",
+      "AssetFile": "D:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\wwwroot\\bootstrap\\bootstrap.min.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "162720"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"z8OR40MowJ8GgK6P89Y+hiJK5+cclzFHzLhFQLL92bg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 03 Oct 2024 13:23:45 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-z8OR40MowJ8GgK6P89Y+hiJK5+cclzFHzLhFQLL92bg="
+        }
+      ]
+    },
+    {
+      "Route": "bootstrap/bootstrap.min.css.8inm30yfxf.map",
+      "AssetFile": "D:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\wwwroot\\bootstrap\\bootstrap.min.css.map",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "449111"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/plain"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"gBwg2tmA0Ci2u54gMF1jNCVku6vznarkLS6D76htNNQ=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 03 Oct 2024 13:23:45 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "8inm30yfxf"
+        },
+        {
+          "Name": "label",
+          "Value": "bootstrap/bootstrap.min.css.map"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-gBwg2tmA0Ci2u54gMF1jNCVku6vznarkLS6D76htNNQ="
+        }
+      ]
+    },
+    {
+      "Route": "bootstrap/bootstrap.min.css.map",
+      "AssetFile": "D:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\wwwroot\\bootstrap\\bootstrap.min.css.map",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "449111"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/plain"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"gBwg2tmA0Ci2u54gMF1jNCVku6vznarkLS6D76htNNQ=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 03 Oct 2024 13:23:45 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-gBwg2tmA0Ci2u54gMF1jNCVku6vznarkLS6D76htNNQ="
+        }
+      ]
+    },
+    {
+      "Route": "favicon.ifv42okdf2.png",
+      "AssetFile": "D:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\wwwroot\\favicon.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1148"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"4mWsDy3aHl36ZbGt8zByK7Pvd4kRUoNgTYzRnwmPHwg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 03 Oct 2024 13:23:45 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "ifv42okdf2"
+        },
+        {
+          "Name": "label",
+          "Value": "favicon.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-4mWsDy3aHl36ZbGt8zByK7Pvd4kRUoNgTYzRnwmPHwg="
+        }
+      ]
+    },
+    {
+      "Route": "favicon.png",
+      "AssetFile": "D:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\wwwroot\\favicon.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1148"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"4mWsDy3aHl36ZbGt8zByK7Pvd4kRUoNgTYzRnwmPHwg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 03 Oct 2024 13:23:45 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-4mWsDy3aHl36ZbGt8zByK7Pvd4kRUoNgTYzRnwmPHwg="
+        }
+      ]
+    },
+    {
+      "Route": "sounds/file_example_WAV_10MG.f9xkcknb82.wav",
+      "AssetFile": "D:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\wwwroot\\sounds\\file_example_WAV_10MG.wav",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "10544134"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "audio/wav"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"nY4RkjIn7t/tBB4STRhwl/SK2jb9RutQrgeaR2WrgQc=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 01 Nov 2024 19:57:26 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "f9xkcknb82"
+        },
+        {
+          "Name": "label",
+          "Value": "sounds/file_example_WAV_10MG.wav"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-nY4RkjIn7t/tBB4STRhwl/SK2jb9RutQrgeaR2WrgQc="
+        }
+      ]
+    },
+    {
+      "Route": "sounds/file_example_WAV_10MG.wav",
+      "AssetFile": "D:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\wwwroot\\sounds\\file_example_WAV_10MG.wav",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "10544134"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "audio/wav"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"nY4RkjIn7t/tBB4STRhwl/SK2jb9RutQrgeaR2WrgQc=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 01 Nov 2024 19:57:26 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-nY4RkjIn7t/tBB4STRhwl/SK2jb9RutQrgeaR2WrgQc="
+        }
+      ]
+    },
+    {
+      "Route": "sounds/mixkit-small-group-cheer-and-applause-518.3l7ag8jjrj.wav",
+      "AssetFile": "D:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\wwwroot\\sounds\\mixkit-small-group-cheer-and-applause-518.wav",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1869442"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "audio/wav"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"GZv1Pvw2PsDEQHdzA9gKG5JxOiUa9P7in6M8R516dnM=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 09 Oct 2024 14:33:09 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "3l7ag8jjrj"
+        },
+        {
+          "Name": "label",
+          "Value": "sounds/mixkit-small-group-cheer-and-applause-518.wav"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-GZv1Pvw2PsDEQHdzA9gKG5JxOiUa9P7in6M8R516dnM="
+        }
+      ]
+    },
+    {
+      "Route": "sounds/mixkit-small-group-cheer-and-applause-518.wav",
+      "AssetFile": "D:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\wwwroot\\sounds\\mixkit-small-group-cheer-and-applause-518.wav",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1869442"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "audio/wav"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"GZv1Pvw2PsDEQHdzA9gKG5JxOiUa9P7in6M8R516dnM=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 09 Oct 2024 14:33:09 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-GZv1Pvw2PsDEQHdzA9gKG5JxOiUa9P7in6M8R516dnM="
+        }
+      ]
+    },
+    {
+      "Route": "sounds/Ouch-6.3qz5t4flhs.wav",
+      "AssetFile": "D:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\wwwroot\\sounds\\Ouch-6.wav",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "36322"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "audio/wav"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"5b77ms8oJXyqFQY0HcTPEWPCBVd6YmMQDNa1QJdVVa8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 09 Oct 2024 14:25:10 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "3qz5t4flhs"
+        },
+        {
+          "Name": "label",
+          "Value": "sounds/Ouch-6.wav"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-5b77ms8oJXyqFQY0HcTPEWPCBVd6YmMQDNa1QJdVVa8="
+        }
+      ]
+    },
+    {
+      "Route": "sounds/Ouch-6.wav",
+      "AssetFile": "D:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\wwwroot\\sounds\\Ouch-6.wav",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "36322"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "audio/wav"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"5b77ms8oJXyqFQY0HcTPEWPCBVd6YmMQDNa1QJdVVa8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 09 Oct 2024 14:25:10 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-5b77ms8oJXyqFQY0HcTPEWPCBVd6YmMQDNa1QJdVVa8="
+        }
+      ]
+    },
+    {
+      "Route": "sounds/sample2.1hgm0ke2qb.WAV",
+      "AssetFile": "D:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\wwwroot\\sounds\\sample2.WAV",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "864300"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/octet-stream"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"G9P19yKfDs3QucN34u60xC6iWRdKAKAvQ0k+s+u78fs=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 09 Oct 2024 12:53:26 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "1hgm0ke2qb"
+        },
+        {
+          "Name": "label",
+          "Value": "sounds/sample2.WAV"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-G9P19yKfDs3QucN34u60xC6iWRdKAKAvQ0k+s+u78fs="
+        }
+      ]
+    },
+    {
+      "Route": "sounds/sample2.WAV",
+      "AssetFile": "D:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\wwwroot\\sounds\\sample2.WAV",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "864300"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/octet-stream"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"G9P19yKfDs3QucN34u60xC6iWRdKAKAvQ0k+s+u78fs=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 09 Oct 2024 12:53:26 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-G9P19yKfDs3QucN34u60xC6iWRdKAKAvQ0k+s+u78fs="
+        }
+      ]
+    },
+    {
+      "Route": "sounds/sample-file-2.dyfqvnhuyn.wav",
+      "AssetFile": "D:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\wwwroot\\sounds\\sample-file-2.wav",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "21194854"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "audio/wav"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"RZ5bcP+5bIIVhdZKY56mk3SqgTDCAAKBDtePxUbwK94=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 01 Nov 2024 20:06:10 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "dyfqvnhuyn"
+        },
+        {
+          "Name": "label",
+          "Value": "sounds/sample-file-2.wav"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-RZ5bcP+5bIIVhdZKY56mk3SqgTDCAAKBDtePxUbwK94="
+        }
+      ]
+    },
+    {
+      "Route": "sounds/sample-file-2.wav",
+      "AssetFile": "D:\\Github repos\\ja-project\\BlazorApp1\\BlazorApp1\\wwwroot\\sounds\\sample-file-2.wav",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "21194854"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "audio/wav"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"RZ5bcP+5bIIVhdZKY56mk3SqgTDCAAKBDtePxUbwK94=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 01 Nov 2024 20:06:10 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-RZ5bcP+5bIIVhdZKY56mk3SqgTDCAAKBDtePxUbwK94="
+        }
+      ]
     }
   ]
 }

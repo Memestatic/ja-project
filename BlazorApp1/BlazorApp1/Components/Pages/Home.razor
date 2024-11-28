@@ -41,7 +41,7 @@
 
     private async Task Start()
     {
-        NativeMethodsC.ProcessFIRFilter(numbers, numbersOutput, coeffs, numbersOutput.Length, coeffs.Length);
+        NativeMethodsAsm.ProcessFIRFilter(numbers, numbersOutput, coeffs, numbersOutput.Length, coeffs.Length);
         StateHasChanged();
     }
 }
