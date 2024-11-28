@@ -10,27 +10,38 @@
 
 <p class="lead">Welcome to FIR low pass filter App</p>
 
+<p>Input:</p>
+
 @foreach(var number in numbers)
 {
-	<p>@number</p>
+	<span>@number , </span>
 }
+
+<p>Coefficients:</p>
+
+@foreach (var number in coeffs)
+{
+    <span>@number , </span>
+}
+
+<p>Output:</p>
 
 @foreach (var number in numbersOutput)
 {
-    <p>@number</p>
+    <span>@number , </span>
 } 
 
 <button @onclick="Start">FIR</button>
 
 
 @code{
-    public float[] numbers = { 1.0f, 2.0f, 3.0f, 4.0f, 5.0f, 6.0f, 7.0f, 8.0f, 9.0f, 13.0f, 14.0f };
-    public float[] numbersOutput = { 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f };
-    public float[] coeffs = { 1.0f, 2.0f, 3.5f, -7.0f, 1.0f, 2.0f, 1.0f, 2.0f, 3.5f, -7.0f, 1.0f, 2.0f, 1.0f, 2.0f, 3.5f, -7.0f, 1.0f, 2.0f };
+    public float[] numbers = { 1.0f, 2.0f, 3.0f, 4.0f, 5.0f, 6.0f, 7.0f, 8.0f, 9.0f, 13.0f, 14.0f, 1.0f, 2.0f, 3.0f, 4.0f, 5.0f, 6.0f, 7.0f, 8.0f, 9.0f, 13.0f, 14.0f };
+    public float[] numbersOutput = { 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f };
+    public float[] coeffs = { 1.0f, 2.0f, 3.5f, -7.0f, 1.0f, 2.0f, 1.0f, 2.0f, 3.5f, -7.0f, 1.0f, 2.0f, 1.0f, 2.0f, 3.5f, -7.0f, 1.0f, 2.0f, 3.5f, -7.0f, 1.0f, 2.0f, 1.0f, 2.0f, 3.5f, -7.0f, 1.0f, 2.0f };
 
     private async Task Start()
     {
-        NativeMethodsAsm.ProcessFIRFilter(numbers, numbersOutput, coeffs, numbersOutput.Length, coeffs.Length);
+        NativeMethodsC.ProcessFIRFilter(numbers, numbersOutput, coeffs, numbersOutput.Length, coeffs.Length);
         StateHasChanged();
     }
 }

@@ -87,14 +87,14 @@ load_xmm0:
     jge load_xmm1       ; If full, start loading xmm1
 
     cmp r12, r10        ; Compare current index with coefficientsLength
-    jge load_xmm1       ; If index >= coefficientsLength, end the inner loop
+    jge combine_ymm       ; If index >= coefficientsLength, end the inner loop
 
     ; Check if n - k >= 0
     mov r13, r11
     sub r13, r12
     shl r13, 2
     cmp r13, 0                   
-    jl load_xmm1                         
+    jl combine_ymm                         
 
     ; Load value into xmm0
     vpinsrd xmm0, xmm0, DWORD PTR [rcx + r13], 0
