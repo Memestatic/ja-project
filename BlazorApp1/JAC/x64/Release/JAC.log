@@ -1,4 +1,5 @@
-﻿  pch.cpp
+﻿D:\Microsoft Visual Studio\2022\MSBuild\Microsoft\VC\v170\Microsoft.CppClean.targets(77,5): warning : The process cannot access the file 'd:\github repos\ja-project\blazorapp1\jac\x64\release\jac.pch' because it is being used by another process.
+  pch.cpp
   dllmain.cpp
   exported_functions.cpp
      Creating library D:\Github repos\ja-project\BlazorApp1\x64\Release\JAC.lib and object D:\Github repos\ja-project\BlazorApp1\x64\Release\JAC.exp

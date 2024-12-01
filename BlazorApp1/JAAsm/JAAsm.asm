@@ -20,12 +20,19 @@ _start:
     ; r10 = coefficientsLength
     mov r10, [rsp + 48]  
     
-
+    mov rax, r10
+    dec rax
     ; Outer loop
     mov r11, 0      ; r11 is the index for the output array
 loop_n:
     cmp r11, r9     ; Compare current index with outputLength
     jge end_loop_n      ; If index >= outputLength, end the loop
+
+    ; Inner loop
+    mov r12, 0      ; r12 is the index for the coefficients array
+
+    cmp r11, rax
+    jl skip_coef
 
     ; Clear ymm registers
     vxorps ymm0, ymm0, ymm0
@@ -35,9 +42,6 @@ loop_n:
     vxorps ymm4, ymm4, ymm4
     vxorps ymm5, ymm5, ymm5
     vxorps ymm6, ymm6, ymm6
-
-    ; Inner loop
-    mov r12, 0      ; r12 is the index for the coefficients array
 
 loop_k:
     cmp r12, r10        ; Compare current index with coefficientsLength
@@ -170,6 +174,11 @@ end_loop_k:
 
     vmovss DWORD PTR [rdx + r11 * 4], xmm4  ; Store the result from the lower part of ymm0
 
+    ; Increment output index and continue main loop
+    inc r11
+    jmp loop_n
+
+skip_coef:
     ; Increment output index and continue main loop
     inc r11
     jmp loop_n
