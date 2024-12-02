@@ -1,3 +1,0 @@
-﻿  Assembling JAAsm.asm...
-LINK : error LNK2001: unresolved external symbol __DllMainCRTStartup@12
-D:\Github repos\ja-project\BlazorApp1\Debug\JAAsm.dll : fatal error LNK1120: 1 unresolved externals
