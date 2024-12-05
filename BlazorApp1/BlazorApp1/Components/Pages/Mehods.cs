@@ -6,12 +6,31 @@ using System.Threading.Tasks;
 
 namespace BlazorApp1.Components.Pages
 {
+    public class MultipleOfEightAttribute : ValidationAttribute
+    {
+        protected override ValidationResult IsValid(object value, ValidationContext validationContext)
+        {
+            if (value is int intValue)
+            {
+                if (intValue % 8 == 0)
+                {
+                    return ValidationResult.Success;
+                }
+                else
+                {
+                    return new ValidationResult("Filter length must be a multiple of 8.");
+                }
+            }
+            return new ValidationResult("Invalid value type.");
+        }
+    }
     public class FilterParameters
     {
         [Range(0, 20000, ErrorMessage = "Frequency must be between 1 and 20000.")]
         public int Frequency { get; set; }
 
-        [Range(8, 64, ErrorMessage = "Filter length must be between 5 and 60.")]
+        [MultipleOfEight(ErrorMessage = "Filter length must be a multiple of 8.")]
+        [Range(8, 64, ErrorMessage = "Filter length must be between 8 and 64.")]
         public int FilterLength { get; set; }
     }
     public class WavFileProcessor
@@ -56,15 +75,24 @@ namespace BlazorApp1.Components.Pages
             int dataSize = wavFile.Length;
             int bytesPerSample = BitsPerSample / 8;
             int totalSamples = dataSize / bytesPerSample;
-            float[] floatData = new float[totalSamples];
+            int samplesPerChannel = totalSamples / Channels;
 
+            float[] floatData = new float[totalSamples];
             float normalizationFactor = (float)Math.Pow(2, BitsPerSample);
 
-            for (int i = 0; i < totalSamples; i++)
+            // Separate channels and combine them sequentially
+            for (int i = 0; i < samplesPerChannel; i++)
             {
-                int sample = BitConverter.ToInt16(wavFile, i * bytesPerSample);
-                floatData[i] = sample / normalizationFactor;
+                for (int channel = 0; channel < Channels; channel++)
+                {
+                    int sampleIndex = i * Channels + channel;
+                    int outputIndex = channel * samplesPerChannel + i;
+                    int sample = BitConverter.ToInt16(wavFile, sampleIndex * bytesPerSample);
+                    floatData[outputIndex] = sample / normalizationFactor;
+                }
             }
+
+            Console.WriteLine($"Channels: {Channels}");
 
             return floatData;
         }
@@ -74,9 +102,12 @@ namespace BlazorApp1.Components.Pages
             using var memoryStream = new MemoryStream();
             using var writer = new BinaryWriter(memoryStream);
 
+            int samplesPerChannel = floatData.Length / Channels;
+            int totalSamples = samplesPerChannel * Channels;
+
             // WAV header
             writer.Write(new char[4] { 'R', 'I', 'F', 'F' });
-            writer.Write(36 + floatData.Length * 2); // File size
+            writer.Write(36 + totalSamples * 2); // File size
             writer.Write(new char[4] { 'W', 'A', 'V', 'E' });
             writer.Write(new char[4] { 'f', 'm', 't', ' ' });
             writer.Write(16); // Subchunk1Size for PCM
@@ -89,15 +120,19 @@ namespace BlazorApp1.Components.Pages
 
             // Data subchunk
             writer.Write(new char[4] { 'd', 'a', 't', 'a' });
-            writer.Write(floatData.Length * 2); // Subchunk2Size
+            writer.Write(totalSamples * 2); // Subchunk2Size
 
             float normalizationFactor = (float)Math.Pow(2, BitsPerSample - 1);
 
-            foreach (var sample in floatData)
+            // Combine samples back into interleaved format
+            for (int i = 0; i < samplesPerChannel; i++)
             {
-                // Convert float sample to short (16-bit PCM)
-                var shortSample = (short)(sample * normalizationFactor);
-                writer.Write(shortSample);
+                for (int channel = 0; channel < Channels; channel++)
+                {
+                    int inputIndex = channel * samplesPerChannel + i;
+                    var shortSample = (short)(floatData[inputIndex] * normalizationFactor);
+                    writer.Write(shortSample);
+                }
             }
 
             writer.Flush();
@@ -105,6 +140,7 @@ namespace BlazorApp1.Components.Pages
             var audioSrc = $"data:audio/wav;base64,{Convert.ToBase64String(wavData)}";
             return audioSrc;
         }
+
     }
 
     public class Coeffs
