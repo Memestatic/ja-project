@@ -133,23 +133,24 @@
         {
             Stopwatch stopwatch = new();
             setCoefficents();
+			Array.Reverse(coefficients);
 
 
-            float[] floatData = await wavFileProcessor.ConvertWavToFloatArray(selectedFile); //przekonwertowane dane wejściowe na tablice floatow
-            long totalSamples = floatData.Length;                           //wielkośc tych danych
-            float[][] chunks = new float[totalSamples / threadCount][];     //mając wielkość danych i liczbę wątkow tworzę miejsce na 
-            float[][] outputChunks = new float[totalSamples / threadCount][];//dane dla każdego wątku - przygotowuje tablice 2-wymiarowa
-                                                                             //gdzie 1 wymiar to ilość wątków a 2 wymiar to dane dla każdego wątku
+            float[] floatData = await wavFileProcessor.ConvertWavToFloatArray(selectedFile);
+            long totalSamples = floatData.Length;
+            float[][] chunks = new float[totalSamples / threadCount][];
+            float[][] outputChunks = new float[totalSamples / threadCount][];
+
             // Split the data into chunks
-            for (int i = 0; i < threadCount; i++)                       //dla kazdego watku tworze tablice z danymi
+            for (int i = 0; i < threadCount; i++)
             {
                 long start = i * (totalSamples / threadCount) + Math.Min(i, totalSamples % threadCount);
                 long end = start + (totalSamples / threadCount) + (i < totalSamples % threadCount ? 1 : 0);
 
-                float[] chunk = new float[end - start];                 //tworze tablice dla danego wątku
-                Array.Copy(floatData, start, chunk, 0, end - start);     //kopiuje dane z tablicy floatData do tablicy chunk
+                float[] chunk = new float[end - start];
+                Array.Copy(floatData, start, chunk, 0, end - start);
 
-                chunks[i] = chunk;                                      //przypisuje tablice chunk do tablicy chunks oraz tymczasowo outputChunks
+                chunks[i] = chunk;
                 outputChunks[i] = new float[chunk.Length];
             }
 
@@ -160,27 +161,27 @@
             }
 
             // Ensure that the DLL method has been selected
-            if (ProcessFIR == null)                                     //tu sie upewniam ze dlla jest wybrana w gui
+            if (ProcessFIR == null)
             {
                 Console.WriteLine("DLL method not selected.");
                 SelectDllMethod("C");
             }
             
-            stopwatch.Start();                                          //zaczynam mierzyc czas
+            stopwatch.Start();
 
             // Use Parallel.For to process FIR filtering in parallel
-            Parallel.For(0, threadCount, i =>                           //tworze n równoległych wątków gdzie n to threadCount - ustalona wartosc poprzez GUI
+            Parallel.For(0, threadCount, i =>
             {
-                ProcessFIR(chunks[i], outputChunks[i], coefficients, outputChunks[i].Length, coefficients.Length);     //wywoluje procedure z porcją danych
+                ProcessFIR(chunks[i], outputChunks[i], coefficients, outputChunks[i].Length, coefficients.Length);
 
             });
 
-            stopwatch.Stop();                                           //koncze mierzyc czas
+            stopwatch.Stop();
             timeResult = stopwatch.Elapsed.TotalMilliseconds;
 
             // Combine output chunks back into the final array
             float[] processedData = new float[totalSamples];
-            for (int i = 0; i < threadCount; i++)                       //tutaj potem łącze te chunki z powrotem w całośc zeby miec cały plik
+            for (int i = 0; i < threadCount; i++)
             {
                 Array.Copy(outputChunks[i], 0, processedData, i * (totalSamples / threadCount), outputChunks[i].Length);
             }

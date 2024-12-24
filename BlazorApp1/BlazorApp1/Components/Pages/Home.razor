@@ -15,34 +15,48 @@
 
 @foreach(var number in numbers)
 {
-	<span>@number , </span>
+    <span>@number , </span>
 }
 
 <p>Coefficients:</p>
 
-@foreach (var number in coeffs)
+@foreach (var number in reversedCoeffs)
 {
     <span>@number , </span>
 }
 
-<p>Output:</p>
+<p>Output Asm:</p>
 
-@foreach (var number in numbersOutput)
+@foreach (var number in numbersOutputAsm)
 {
     <span>@number , </span>
-} 
+}
 
-<button @onclick="Start">FIR</button> *@
+<p>Output C:</p>
+
+@foreach (var number in numbersOutputC)
+{
+    <span>@number , </span>
+}
+
+
+
+<button @onclick="Start">FIR</button>  *@
 
 
 @code{
     // public float[] numbers = { 1.0f, 2.0f, 3.0f, 4.0f, 5.0f, 6.0f, 7.0f, 8.0f, 9.0f, 13.0f, 14.0f, 1.0f, 2.0f, 3.0f, 4.0f, 5.0f, 6.0f, 7.0f, 8.0f, 9.0f, 13.0f, 14.0f };
-    // public float[] numbersOutput = { 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f };
-    // public float[] coeffs = { 1.0f, 2.0f, 3.5f, -7.0f, 13.0f, 1.0f, 2.0f, 3.5f};
+    // public float[] numbersOutputC = { 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f };
+    // public float[] numbersOutputAsm = { 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f };
+    // public float[] reversedCoeffs = { 3.5f, 2.0f, 1.0f, 13.0f, -7.0f, 3.5f, 2.0f, 1.0f, 3.5f, 2.0f, 1.0f, 13.0f, -7.0f, 3.5f, 2.0f, 1.0f };
+
 
     // private async Task Start()
     // {
-    //     NativeMethodsAsm.ProcessFIRFilter(numbers, numbersOutput, coeffs, numbersOutput.Length, coeffs.Length);
+    //     NativeMethodsAsm.ProcessFIRFilter(numbers, numbersOutputAsm, reversedCoeffs, numbersOutputAsm.Length, reversedCoeffs.Length);
+		
+    //     NativeMethodsC.ProcessFIRFilter(numbers, numbersOutputC, reversedCoeffs, numbersOutputC.Length, reversedCoeffs.Length);
+        
     //     StateHasChanged();
     // }
 

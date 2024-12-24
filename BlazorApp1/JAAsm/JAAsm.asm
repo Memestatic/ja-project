@@ -1,7 +1,3 @@
-.data
-
-reverse_mask DWORD 7, 6, 5, 4, 3, 2, 1, 0
-
 .code
 
 ProcessFIRFilter proc
@@ -61,11 +57,6 @@ loop_k:
     sub r13, 28
     vmovups ymm5, YMMWORD PTR [rcx + r13]
     vmovups ymm6, YMMWORD PTR [r8 + r12 * 4]
-
-    ; Reverse the order of the samples
-    vmovaps ymm2, YMMWORD PTR [reverse_mask]
-    vpermps ymm5, ymm2, ymm5
-    vxorps ymm2, ymm2, ymm2
 
     add r12, 8
     jmp multiply_and_add

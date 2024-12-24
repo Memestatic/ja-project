@@ -9,7 +9,7 @@ extern "C" __declspec(dllexport) void ProcessFIRFilter(float* input, float* outp
 
         for (int k = 0; k < coefficientsLength; ++k) {
             if (n - k >= 0) {
-                output[n] += coefficients[k] * input[n - k];
+                output[n] += coefficients[coefficientsLength - 1 - k] * input[n - k];
             }
             else {
                 break;
