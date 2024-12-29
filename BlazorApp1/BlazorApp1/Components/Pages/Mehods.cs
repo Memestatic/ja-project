@@ -78,7 +78,8 @@ namespace BlazorApp1.Components.Pages
             int samplesPerChannel = totalSamples / Channels;
 
             float[] floatData = new float[totalSamples];
-            float normalizationFactor = (float)Math.Pow(2, BitsPerSample);
+            float normalizationFactor = (float)Math.Pow(2, BitsPerSample - 1);
+
 
             // Separate channels and combine them sequentially
             for (int i = 0; i < samplesPerChannel; i++)

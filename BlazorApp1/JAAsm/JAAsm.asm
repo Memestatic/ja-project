@@ -49,103 +49,12 @@ loop_k:
     cmp r13, 0
     jl end_loop_k       ; If r13 < 0, skip this iteration
 
-    ; Check if 8 samples are available
-    cmp r13, 28
-    ; If not, start manual loading
-    jl copy_loop
 
     sub r13, 28
     vmovups ymm5, YMMWORD PTR [rcx + r13]
     vmovups ymm6, YMMWORD PTR [r8 + r12 * 4]
 
     add r12, 8
-    jmp multiply_and_add
-
-copy_loop:
-    ; Initialize indices for loading into xmm0 and xmm1
-    mov r14, 0      ; r14 is the counter for xmm0
-    mov rdi, 0      ; rdi is the counter for xmm1
-
-    ; Clear ymm registers
-    vxorps ymm0, ymm0, ymm0
-    vxorps ymm1, ymm1, ymm1
-    vxorps ymm2, ymm2, ymm2
-    vxorps ymm3, ymm3, ymm3
-    ;vxorps ymm4, ymm4, ymm4
-    vxorps ymm5, ymm5, ymm5
-    vxorps ymm6, ymm6, ymm6
-
-    jmp load_xmm0
-
-load_xmm0:
-    cmp r14, 4      ; Check if xmm0 is full (4 values)
-    jge load_xmm1       ; If full, start loading xmm1
-
-    cmp r12, r10        ; Compare current index with coefficientsLength
-    jge combine_ymm       ; If index >= coefficientsLength, end the inner loop
-
-    ; Check if n - k >= 0
-    mov r13, r11
-    sub r13, r12
-    shl r13, 2
-    cmp r13, 0                   
-    jl combine_ymm                         
-
-    ; Load value into xmm0
-    vpinsrd xmm0, xmm0, DWORD PTR [rcx + r13], 0
-
-    ; Shift values in xmm0 to the right by 1 place
-    vpermilps xmm0, xmm0, 57
-
-    ; Load coefficient as well
-    vpinsrd xmm2, xmm2, DWORD PTR [r8 + r12 * 4], 0
-
-    ; Shift values in xmm2 to the right by 1 place
-    vpermilps xmm2, xmm2, 57
-
-    inc r12     ; Increment coefficients index
-    inc r14     ; Increment xmm0 index
-    jmp load_xmm0       ; Continue loading values
-
-load_xmm1:
-    cmp rdi, 4      ; Check if xmm1 is full (4 values)
-    jge combine_ymm     ; If full, combine xmm0 and xmm1 into ymm0
-
-    cmp r12, r10        ; Compare current index with coefficientsLength
-    jge combine_ymm     ; If index >= coefficientsLength, end the inner loop
-
-    ; Check if n - k >= 0
-    mov r13, r11
-    sub r13, r12
-    shl r13, 2
-    cmp r13, 0
-    jl combine_ymm
-
-    ; Load value into xmm1
-    vpinsrd xmm1, xmm1, DWORD PTR [rcx + r13], 0
-
-    ; Shift values in xmm1 to the right by 1 place
-    vpermilps xmm1, xmm1, 57
-
-    ; Load coefficient as well
-    vpinsrd xmm3, xmm3, DWORD PTR [r8 + r12 * 4], 0
-
-    ; Shift values in xmm3 to the right by 1 place
-    vpermilps xmm3, xmm3, 57
-
-    inc r12     ; Increment coefficients index
-    inc rdi     ; Increment xmm1 index
-    jmp load_xmm1       ; Continue loading values
-
-combine_ymm:
-    ; Combine xmm0 and xmm1 into ymm0
-    vinsertf128 ymm5, ymm5, xmm0, 0
-    vinsertf128 ymm5, ymm5, xmm1, 1
-
-    vinsertf128 ymm6, ymm6, xmm2, 0
-    vinsertf128 ymm6, ymm6, xmm3, 1
-
-    ; Continue with the rest of the algorithm
     jmp multiply_and_add
 
 multiply_and_add:
